@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvo8y8lgyvgm3"]
+[gd_scene load_steps=7 format=3 uid="uid://cvo8y8lgyvgm3"]
 
 [ext_resource type="PackedScene" uid="uid://cmflrgaamfdj5" path="res://scenes/player.tscn" id="1_r3n07"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_34p18"]
+[ext_resource type="Texture2D" uid="uid://brrhv2ofkuu3" path="res://icon.svg" id="3_41x5a"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_e40o8"]
 size = Vector2(1000, 100)
@@ -9,11 +10,15 @@ size = Vector2(1000, 100)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nh3gd"]
 size = Vector2(998, 98)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7gldu"]
+size = Vector2(88, 91)
+
 [node name="World" type="Node2D"]
 position = Vector2(2, 2)
 
 [node name="Player" parent="." instance=ExtResource("1_r3n07")]
 position = Vector2(576, 362)
+collision_mask = 129
 script = ExtResource("2_34p18")
 
 [node name="Plattform1" type="StaticBody2D" parent="."]
@@ -37,3 +42,27 @@ mesh = SubResource("QuadMesh_e40o8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plattform2"]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_nh3gd")
+
+[node name="Plattform3" type="StaticBody2D" parent="."]
+modulate = Color(0.337255, 1, 0.415686, 1)
+position = Vector2(2914, 132)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Plattform3"]
+mesh = SubResource("QuadMesh_e40o8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plattform3"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_nh3gd")
+
+[node name="LevelEnd" type="Area2D" parent="."]
+position = Vector2(3338, 11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelEnd"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_7gldu")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelEnd"]
+modulate = Color(1, 1, 1, 0.454902)
+texture = ExtResource("3_41x5a")
+
+[connection signal="body_entered" from="LevelEnd" to="Player" method="_on_level_end_body_entered"]
