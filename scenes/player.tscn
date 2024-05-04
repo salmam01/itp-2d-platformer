@@ -12,10 +12,11 @@ position = Vector2(0, -67)
 texture = ExtResource("1_wx2dp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -66)
 shape = SubResource("RectangleShape2D_0gl8a")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(10, -194)
+position = Vector2(-1, -213)
 offset = Vector2(0, 5)
 zoom = Vector2(0.8, 0.8)

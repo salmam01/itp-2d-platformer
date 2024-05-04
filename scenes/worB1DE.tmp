@@ -22,9 +22,6 @@ position = Vector2(576, 362)
 collision_mask = 129
 script = ExtResource("2_34p18")
 
-[node name="CollisionShape2D" parent="Player" index="1"]
-visible = true
-
 [node name="Plattform1" type="StaticBody2D" parent="."]
 modulate = Color(0.337255, 1, 0.415686, 1)
 position = Vector2(578, 424)
@@ -72,9 +69,9 @@ texture = ExtResource("3_41x5a")
 [node name="Orb" parent="." instance=ExtResource("4_8jt8u")]
 position = Vector2(995, 302)
 
-[connection signal="free_orb" from="Player" to="Orb" method="_on_player_free_orb"]
+[connection signal="body_entered" from="Player/orb_detector" to="Orb" method="_on_orb_detector_body_entered"]
+[connection signal="body_exited" from="Player/orb_detector" to="Orb" method="_on_orb_detector_body_exited"]
 [connection signal="body_entered" from="LevelEnd" to="Player" method="_on_level_end_body_entered"]
-[connection signal="body_entered" from="Orb/pickable_area" to="Player" method="_on_pickable_area_body_entered"]
+[connection signal="collected" from="Orb" to="Player" method="_on_orb_collected"]
 
 [editable path="Player"]
-[editable path="Orb"]

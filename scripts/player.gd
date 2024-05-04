@@ -6,8 +6,11 @@ extends CharacterBody2D
 @export var reduced_jump_force = 600
 @export var max_jumps = 2
 @export var starting_position = Vector2(150,200)
+@export var max_orbs = 9
+var orb_count = 0
 var jump_force_state = default_jump_force
 var jump_count = 0
+signal free_orb()
 
 func _physics_process(delta):
 	if !is_on_floor():
@@ -41,3 +44,14 @@ func teleport_to_starting_position():
 	
 func _on_level_end_body_entered(body):
 	teleport_to_starting_position()
+
+func _on_orb_collected(value):
+	if orb_count < max_orbs:
+		orb_count += value
+		print(orb_count)
+
+func _on_pickable_area_body_entered(body):
+	if(orb_count < max_orbs):
+		orb_count += 1
+		print(orb_count)
+		emit_signal("free_orb")
