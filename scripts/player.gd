@@ -9,6 +9,9 @@ extends CharacterBody2D
 var jump_force_state = default_jump_force
 var jump_count = 0
 
+@export var lives = 9
+@onready var UI = $Lives
+
 func _physics_process(delta):
 	if !is_on_floor():
 		velocity.y += gravity
@@ -30,6 +33,8 @@ func _physics_process(delta):
 	var horizontal_direction = Input.get_axis("move_left","move_right")	
 	velocity.x = speed * horizontal_direction
 	move_and_slide()
+	
+	UI.text = str(lives)
 	
 func _ready():
 	# Set the starting position of the player
