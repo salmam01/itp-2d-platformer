@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvo8y8lgyvgm3"]
+[gd_scene load_steps=8 format=3 uid="uid://cvo8y8lgyvgm3"]
 
 [ext_resource type="PackedScene" uid="uid://cmflrgaamfdj5" path="res://scenes/player.tscn" id="1_r3n07"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_34p18"]
@@ -12,6 +12,9 @@ size = Vector2(998, 98)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7gldu"]
 size = Vector2(88, 91)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ht5q7"]
+size = Vector2(5384, 170)
 
 [node name="World" type="Node2D"]
 position = Vector2(2, 2)
@@ -65,4 +68,11 @@ shape = SubResource("RectangleShape2D_7gldu")
 modulate = Color(1, 1, 1, 0.454902)
 texture = ExtResource("3_41x5a")
 
+[node name="Void" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Void"]
+position = Vector2(1574, 887)
+shape = SubResource("RectangleShape2D_ht5q7")
+
 [connection signal="body_entered" from="LevelEnd" to="Player" method="_on_level_end_body_entered"]
+[connection signal="body_entered" from="Void" to="Player" method="_on_void_body_entered"]
