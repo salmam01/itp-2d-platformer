@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvoxe1djga1wb"]
+
+[ext_resource type="Script" path="res://scripts/orb.gd" id="1_ref10"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_olygf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_415xe"]
+radius = 43.0
+
+[node name="Orb" type="Node2D"]
+script = ExtResource("1_ref10")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(0, 0.897245, 0.790149, 1)
+position = Vector2(0, -1)
+scale = Vector2(66.4503, 66.4503)
+mesh = SubResource("SphereMesh_olygf")
+
+[node name="pickable_area" type="Area2D" parent="."]
+position = Vector2(-18, 3.25794)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickable_area"]
+position = Vector2(18, -3.25794)
+shape = SubResource("CircleShape2D_415xe")
