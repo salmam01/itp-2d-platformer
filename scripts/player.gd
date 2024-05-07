@@ -45,11 +45,6 @@ func teleport_to_starting_position():
 func _on_level_end_body_entered(body):
 	teleport_to_starting_position()
 
-func _on_orb_collected(value):
-	if orb_count < max_orbs:
-		orb_count += value
-		print(orb_count)
-
 func _on_pickable_area_body_entered(body):
 	if(orb_count < max_orbs):
 		orb_count += 1
