@@ -6,11 +6,12 @@ extends CharacterBody2D
 @export var reduced_jump_force = 600
 @export var max_jumps = 2
 @export var starting_position = Vector2(150,200)
+@export var max_orbs = 9
+@onready var UI = $Lives
 var jump_force_state = default_jump_force
 var jump_count = 0
 
-@export var lives = 9
-@onready var UI = $Lives
+signal free_orb()
 
 func _physics_process(delta):
 	if !is_on_floor():
@@ -34,7 +35,7 @@ func _physics_process(delta):
 	velocity.x = speed * horizontal_direction
 	move_and_slide()
 	
-	UI.text = str(lives)
+	UI.text = str(max_orbs)
 	
 func _ready():
 	# Set the starting position of the player
@@ -47,8 +48,16 @@ func teleport_to_starting_position():
 func _on_level_end_body_entered(body):
 	teleport_to_starting_position()
 
+
 func _on_void_body_entered(body):
-	lives -= 1
-	if lives == 0:
-		lives = 9
+	max_orbs -= 1
+	if max_orbs == 0:
+		max_orbs = 9
 	teleport_to_starting_position()
+
+func _on_pickable_area_body_entered(body):
+	if(max_orbs < 9):
+		max_orbs += 1
+		#print(orb_count)
+		emit_signal("free_orb")
+
