@@ -47,6 +47,11 @@ func teleport_to_starting_position():
 func _on_level_end_body_entered(body):
 	teleport_to_starting_position()
 
+func _on_warp_obstacle_body_entered(body):
+	lives -= 1
+	if lives == 0:
+		lives = 9
+	teleport_to_starting_position()
 
 func _on_void_body_entered(body):
 	lives -= 1
