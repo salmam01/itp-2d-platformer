@@ -5,20 +5,15 @@
 [sub_resource type="SphereMesh" id="SphereMesh_olygf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_415xe"]
-radius = 43.0
+radius = 0.5
 
-[node name="Orb" type="Node2D"]
+[node name="Orb" type="Area2D"]
 script = ExtResource("1_ref10")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-modulate = Color(0, 0.897245, 0.790149, 1)
-position = Vector2(0, -1)
-scale = Vector2(66.4503, 66.4503)
+scale = Vector2(16, 16)
 mesh = SubResource("SphereMesh_olygf")
 
-[node name="pickable_area" type="Area2D" parent="."]
-position = Vector2(-18, 3.25794)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pickable_area"]
-position = Vector2(18, -3.25794)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(16, 16)
 shape = SubResource("CircleShape2D_415xe")

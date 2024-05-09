@@ -1,13 +1,28 @@
-# player.gd
-extends Node2D
+extends Area2D
 
-@export var start_pos_orb = Vector2(1002,310)
-@export var orb_hide_pos = Vector2(1002,1100)
+@export var void_level = 1100
 
 func _on_player_free_orb():
-	position = orb_hide_pos
-
-
-
+	position.y -= void_level
 func _on_player_show_orb():
-	position = start_pos_orb
+	position.y += void_level
+
+func _on_player_free_health_orb():
+	position.y -= void_level
+func _on_player_show_health_orb():
+	position.y += void_level
+	
+func _on_player_free_dash_orb():
+	position.y -= void_level
+func _on_player_show_dash_orb():
+	position.y += void_level
+	
+func _on_player_free_jump_orb():
+	position.y -= void_level
+func _on_player_show_jump_orb():
+	position.y += void_level
+
+func _on_player_free_jump_orb_2():
+	position.y -= void_level
+func _on_player_show_jump_orb_2():
+	position.y += void_level

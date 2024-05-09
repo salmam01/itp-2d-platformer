@@ -16,7 +16,7 @@ visible = false
 position = Vector2(0, -66)
 shape = SubResource("RectangleShape2D_0gl8a")
 
-[node name="Lives" type="Label" parent="."]
+[node name="UI" type="Label" parent="."]
 anchors_preset = -1
 anchor_left = -0.558
 anchor_top = -0.846
@@ -32,9 +32,3 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(-1, -213)
 offset = Vector2(0, 5)
 zoom = Vector2(0.8, 0.8)
-
-[node name="Health" type="Label" parent="."]
-offset_left = -649.0
-offset_top = -511.0
-offset_right = -612.0
-offset_bottom = -483.0
