@@ -29,9 +29,9 @@ offset_bottom = -525.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-1, -213)
+position = Vector2(-1, -333)
 offset = Vector2(0, 5)
-zoom = Vector2(0.8, 0.8)
+zoom = Vector2(0.6, 0.6)
 
 [node name="Health" type="Label" parent="."]
 offset_left = -649.0
