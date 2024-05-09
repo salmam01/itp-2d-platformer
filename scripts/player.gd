@@ -7,11 +7,16 @@ extends CharacterBody2D
 @export var max_jumps = 2
 @export var starting_position = Vector2(150,200)
 @export var max_orbs = 9
-@onready var UI = $Lives
+@export var current_orbs = 8
+@export var max_health = 3
+@export var current_health = 3
+@onready var Lives_UI = $Lives
+@onready var Health_UI = $Health
 var jump_force_state = default_jump_force
 var jump_count = 0
 
 signal free_orb()
+signal show_orb()
 
 func _physics_process(delta):
 	if !is_on_floor():
@@ -35,7 +40,8 @@ func _physics_process(delta):
 	velocity.x = speed * horizontal_direction
 	move_and_slide()
 	
-	UI.text = str(max_orbs)
+	Lives_UI.text = str(current_orbs)
+	Health_UI.text = str(current_health)
 	
 func _ready():
 	# Set the starting position of the player
@@ -45,19 +51,32 @@ func _ready():
 func teleport_to_starting_position():
 	position = starting_position
 	
-func _on_level_end_body_entered(body):
+func _on_level_end_body_entered(body): #eneting the end of level
+	emit_signal("show_orb")
 	teleport_to_starting_position()
 
-
-func _on_void_body_entered(body):
-	max_orbs -= 1
-	if max_orbs == 0:
-		max_orbs = 9
+func _on_void_body_entered(body): #falling off level
+	current_health = max_health
+	current_orbs -= 1
+	if current_orbs == 0:
+		current_orbs = max_orbs
+	emit_signal("show_orb")
 	teleport_to_starting_position()
 
 func _on_pickable_area_body_entered(body):
-	if(max_orbs < 9):
-		max_orbs += 1
-		#print(orb_count)
+	if(current_health < max_health):
+		current_health += 1
 		emit_signal("free_orb")
+	else:
+		if(current_orbs < max_orbs):
+			current_orbs += 1
+			#print(orb_count)
+			emit_signal("free_orb")
 
+func _on_spike_body_entered(body):
+	current_health -= 1
+	if current_health == 0:
+		current_orbs -= 1
+		current_health = max_health
+	emit_signal("show_orb")
+	teleport_to_starting_position()

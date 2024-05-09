@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cvo8y8lgyvgm3"]
+[gd_scene load_steps=10 format=3 uid="uid://cvo8y8lgyvgm3"]
 
 [ext_resource type="PackedScene" uid="uid://cmflrgaamfdj5" path="res://scenes/player.tscn" id="1_r3n07"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_34p18"]
@@ -16,6 +16,9 @@ size = Vector2(88, 91)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ht5q7"]
 size = Vector2(5384, 170)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8xn71"]
+height = 50.0
 
 [node name="World" type="Node2D"]
 position = Vector2(2, 2)
@@ -70,17 +73,32 @@ modulate = Color(1, 1, 1, 0.454902)
 texture = ExtResource("3_41x5a")
 
 [node name="Void" type="Area2D" parent="."]
+position = Vector2(1585, 732)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Void"]
-position = Vector2(1574, 887)
+position = Vector2(2, 138)
 shape = SubResource("RectangleShape2D_ht5q7")
 
 [node name="Orb" parent="." instance=ExtResource("4_8jt8u")]
 position = Vector2(1002, 310)
 
+[node name="Spike" type="Area2D" parent="."]
+position = Vector2(1672, 192)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike"]
+position = Vector2(0, 27)
+shape = SubResource("CapsuleShape2D_8xn71")
+
+[node name="Sprite2D" type="Sprite2D" parent="Spike"]
+position = Vector2(0.249977, 29.5)
+scale = Vector2(0.152343, 0.429688)
+texture = ExtResource("3_41x5a")
+
 [connection signal="free_orb" from="Player" to="Orb" method="_on_player_free_orb"]
+[connection signal="show_orb" from="Player" to="Orb" method="_on_player_show_orb"]
 [connection signal="body_entered" from="LevelEnd" to="Player" method="_on_level_end_body_entered"]
 [connection signal="body_entered" from="Void" to="Player" method="_on_void_body_entered"]
 [connection signal="body_entered" from="Orb/pickable_area" to="Player" method="_on_pickable_area_body_entered"]
+[connection signal="body_entered" from="Spike" to="Player" method="_on_spike_body_entered"]
 
 [editable path="Orb"]

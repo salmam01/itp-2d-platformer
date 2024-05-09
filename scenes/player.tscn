@@ -32,3 +32,9 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(-1, -213)
 offset = Vector2(0, 5)
 zoom = Vector2(0.8, 0.8)
+
+[node name="Health" type="Label" parent="."]
+offset_left = -649.0
+offset_top = -511.0
+offset_right = -612.0
+offset_bottom = -483.0
