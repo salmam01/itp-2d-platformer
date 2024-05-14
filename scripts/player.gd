@@ -3,20 +3,32 @@ extends CharacterBody2D
 @export var speed = 800
 @export var gravity = 30
 @export var default_jump_force = 700
-@export var reduced_jump_force = 600
+@export var reduced_jump_force = 500
 @export var max_jumps = 2
 @export var starting_position = Vector2(150,200)
-@export var max_orbs = 9
-@export var current_orbs = 8
+@export var orbs = 0
+@export var max_lives = 9
+@export var current_lives = 8
 @export var max_health = 3
 @export var current_health = 3
-@onready var Lives_UI = $Lives
-@onready var Health_UI = $Health
+@export var max_jump_boosts = 3
+@export var current_jump_boosts = 0
+@export var max_speed_boosts = 3
+@export var current_speed_boosts = 0
+@onready var Lives_UI = $UI
 var jump_force_state = default_jump_force
 var jump_count = 0
 
 signal free_orb()
+signal free_health_orb()
+signal free_dash_orb()
+signal free_jump_orb()
+signal free_jump_orb_2()
 signal show_orb()
+signal show_health_orb()
+signal show_dash_orb()
+signal show_jump_orb()
+signal show_jump_orb_2()
 
 func _physics_process(delta):
 	if !is_on_floor():
@@ -36,12 +48,23 @@ func _physics_process(delta):
 		velocity.y = -default_jump_force
 		jump_count += 1
 		
+	if Input.is_action_pressed("dash") && current_speed_boosts > 0:
+		current_speed_boosts -= 1
+		dash()
+		
+	if Input.is_action_pressed("boosted_jump") && current_jump_boosts > 0:
+		current_jump_boosts -= 1
+		jump_boost()
+		
 	var horizontal_direction = Input.get_axis("move_left","move_right")	
 	velocity.x = speed * horizontal_direction
 	move_and_slide()
 	
-	Lives_UI.text = str(current_orbs)
-	Health_UI.text = str(current_health)
+	Lives_UI.text = "Lives: " + str(current_lives)
+	Lives_UI.text += "\nHealth: " + str(current_health)
+	Lives_UI.text += "\nOrbs: " + str(orbs)
+	Lives_UI.text += "\nSpeed Boosts: " + str(current_speed_boosts) + "  (Shift)"
+	Lives_UI.text += "\nJump Boosts: " + str(current_jump_boosts) + "  (F)"
 	
 func _ready():
 	# Set the starting position of the player
@@ -52,31 +75,78 @@ func teleport_to_starting_position():
 	position = starting_position
 	
 func _on_level_end_body_entered(body): #eneting the end of level
-	emit_signal("show_orb")
+	reset_orbs()
 	teleport_to_starting_position()
 
 func _on_void_body_entered(body): #falling off level
 	current_health = max_health
-	current_orbs -= 1
-	if current_orbs == 0:
-		current_orbs = max_orbs
-	emit_signal("show_orb")
+	current_lives -= 1
+	if current_lives == 0:
+		current_lives = max_lives
+	reset_orbs()
 	teleport_to_starting_position()
 
-func _on_pickable_area_body_entered(body):
+func _on_orb_body_entered(body):
+	orbs += 1
+	emit_signal("free_orb")
+	
+func _on_health_orb_body_entered(body):
 	if(current_health < max_health):
 		current_health += 1
-		emit_signal("free_orb")
+		emit_signal("free_health_orb")
 	else:
-		if(current_orbs < max_orbs):
-			current_orbs += 1
+		if(current_lives < max_lives):
+			current_lives += 1
 			#print(orb_count)
-			emit_signal("free_orb")
+			emit_signal("free_health_orb")
 
 func _on_spike_body_entered(body):
 	current_health -= 1
 	if current_health == 0:
-		current_orbs -= 1
+		current_lives -= 1
+		if current_lives == 0:
+			current_lives = max_lives
 		current_health = max_health
+	#emit_signal("show_orb")
+	#teleport_to_starting_position()
+
+func _on_dash_orb_body_entered(body):
+	if Input.is_action_pressed("pick_up") && current_speed_boosts != max_speed_boosts:
+		current_speed_boosts += 1
+	else:
+		dash()
+	emit_signal("free_dash_orb")
+
+func _on_jump_orb_body_entered(body):
+	if Input.is_action_pressed("pick_up") && current_jump_boosts != max_jump_boosts:
+		current_jump_boosts += 1
+	else:
+		jump_boost()
+	emit_signal("free_jump_orb")
+
+
+func _on_jump_orb_2_body_entered(body):
+	if Input.is_action_pressed("pick_up") && current_jump_boosts != max_jump_boosts:
+		current_jump_boosts += 1
+	else:
+		jump_boost()
+	emit_signal("free_jump_orb_2")
+
+func reset_orbs():
 	emit_signal("show_orb")
-	teleport_to_starting_position()
+	emit_signal("show_health_orb")
+	emit_signal("show_dash_orb")
+	emit_signal("show_jump_orb")
+	emit_signal("show_jump_orb_2")
+	
+func dash():
+	speed = 1600
+	var timer := get_tree().create_timer(2)
+	timer.timeout.connect(func(): speed = 800)
+	
+func jump_boost():
+	default_jump_force = 1000
+	reduced_jump_force = 750
+	var timer := get_tree().create_timer(2)
+	timer.timeout.connect(func(): default_jump_force = 700)
+	timer.timeout.connect(func(): reduced_jump_force = 500)

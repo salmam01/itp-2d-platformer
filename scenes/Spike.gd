@@ -7,8 +7,6 @@ extends StaticBody2D
 @export var pause_max = 100
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-# IMPORTANT: ensure spike collision path does not 'colide' with any other objects. 
-			#It has to at least be touching them at all times.
 func _physics_process(delta):
 	if movement_counter == movement_max:
 		if pause_counter != pause_max:
