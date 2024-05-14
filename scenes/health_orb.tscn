@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv8j8tgu5cp0j"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_4ilh5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qklap"]
+radius = 1.4375
+
+[node name="HealthOrb" type="Area2D"]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(0.479864, 1, 0.769665, 1)
+scale = Vector2(46, 46)
+mesh = SubResource("SphereMesh_4ilh5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(16, 16)
+shape = SubResource("CircleShape2D_qklap")
