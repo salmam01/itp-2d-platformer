@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://btd4s0ktt4yjp"]
+
+[ext_resource type="Script" path="res://scripts/Main_Menu.gd" id="1_l3hti"]
+[ext_resource type="Texture2D" uid="uid://bw5dckfgy4nu5" path="res://art/Background/main_menu_reference.png" id="2_kpcoj"]
+[ext_resource type="FontFile" uid="uid://dgyyto1smy2pg" path="res://art/KongJapanese-Wy7PA.otf" id="3_0641o"]
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l3hti")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(686, 403)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_kpcoj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_top = -101.0
+offset_right = 35.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Start_Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_0641o")
+text = "Start"
+
+[node name="Options_Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_0641o")
+text = "Options"
+
+[node name="Quit_Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_0641o")
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Start_Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options_Button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]
