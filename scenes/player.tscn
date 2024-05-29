@@ -1,6 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmflrgaamfdj5"]
+[gd_scene load_steps=12 format=3 uid="uid://cmflrgaamfdj5"]
 
 [ext_resource type="Texture2D" uid="uid://brrhv2ofkuu3" path="res://icon.svg" id="1_wx2dp"]
+[ext_resource type="Texture2D" uid="uid://cxq0jl145e2uv" path="res://art/Foxhead_Logo/foxhead1.png" id="2_s8ulm"]
+[ext_resource type="Texture2D" uid="uid://5h8tq7lh1n7u" path="res://art/Foxhead_Logo/foxhead2.png" id="3_e1w7r"]
+[ext_resource type="Texture2D" uid="uid://due2qljc4lrqh" path="res://art/Foxhead_Logo/foxhead3.png" id="4_ynjal"]
+[ext_resource type="Texture2D" uid="uid://cynbtbvkhl2t2" path="res://art/Foxhead_Logo/foxhead4.png" id="5_ysqmf"]
+[ext_resource type="Texture2D" uid="uid://wugfvw3rvh28" path="res://art/Foxhead_Logo/foxhead5.png" id="6_lway0"]
+[ext_resource type="Texture2D" uid="uid://dporjh3hgw3uv" path="res://art/Foxhead_Logo/foxhead6.png" id="7_hpyyx"]
+[ext_resource type="Texture2D" uid="uid://c6rgbw2colblr" path="res://art/Foxhead_Logo/foxhead7.png" id="8_vhflp"]
+[ext_resource type="Texture2D" uid="uid://mdtvdspdfwna" path="res://art/Foxhead_Logo/foxhead8.png" id="9_hwhuc"]
+[ext_resource type="Texture2D" uid="uid://dd52cq4m41xjm" path="res://art/Foxhead_Logo/foxhead9.png" id="10_8rvou"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0gl8a"]
 size = Vector2(124, 126)
@@ -32,3 +41,64 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(-1, -213)
 offset = Vector2(0, 5)
 zoom = Vector2(0.6, 0.6)
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -21.0
+offset_top = -743.0
+offset_right = 19.0
+offset_bottom = -703.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI"]
+layout_mode = 0
+offset_left = -79.0
+offset_top = 1.0
+offset_right = 313.0
+offset_bottom = 41.0
+scale = Vector2(5, 4.92)
+
+[node name="TextureRect" type="TextureRect" parent="GUI/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_s8ulm")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="GUI/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_e1w7r")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="GUI/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_ynjal")
+expand_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="GUI/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_ysqmf")
+expand_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="GUI/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_lway0")
+expand_mode = 2
+
+[node name="TextureRect6" type="TextureRect" parent="GUI/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_hpyyx")
+expand_mode = 2
+
+[node name="TextureRect7" type="TextureRect" parent="GUI/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_vhflp")
+expand_mode = 2
+
+[node name="TextureRect8" type="TextureRect" parent="GUI/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("9_hwhuc")
+expand_mode = 2
+
+[node name="TextureRect9" type="TextureRect" parent="GUI/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_8rvou")
+expand_mode = 2

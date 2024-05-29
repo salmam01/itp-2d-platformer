@@ -16,6 +16,7 @@ extends CharacterBody2D
 @export var max_speed_boosts = 3
 @export var current_speed_boosts = 0
 @onready var Lives_UI = $UI
+@onready var life_container = $GUI/HBoxContainer
 var jump_force_state = default_jump_force
 var jump_count = 0
 
@@ -69,7 +70,26 @@ func _physics_process(delta):
 func _ready():
 	# Set the starting position of the player
 	position = starting_position  # Set the desired X and Y coordinates
+	update_life_gui()
 	
+func update_life_gui():
+	for i in range(max_lives):
+		var life_icon = life_container.get_child(i)
+		if i == current_lives - 1:  # Show only the current_lives-th TextureRect
+			life_icon.visible = true
+		else:
+			life_icon.visible = false
+
+func lose_life():
+	if current_lives > 0:
+		current_lives -= 1
+		update_life_gui()
+
+func gain_life():
+	if current_lives < max_lives:
+		current_lives += 1
+		update_life_gui()
+
 # Teleport the player back to the starting position
 func teleport_to_starting_position():
 	position = starting_position
@@ -80,7 +100,7 @@ func _on_level_end_body_entered(body): #eneting the end of level
 
 func _on_void_body_entered(body): #falling off level
 	current_health = max_health
-	current_lives -= 1
+	lose_life()
 	if current_lives == 0:
 		current_lives = max_lives
 	reset_orbs()
@@ -96,14 +116,14 @@ func _on_health_orb_body_entered(body):
 		emit_signal("free_health_orb")
 	else:
 		if(current_lives < max_lives):
-			current_lives += 1
+			gain_life()
 			#print(orb_count)
 			emit_signal("free_health_orb")
 
 func _on_spike_body_entered(body):
 	current_health -= 1
 	if current_health == 0:
-		current_lives -= 1
+		lose_life()
 		if current_lives == 0:
 			current_lives = max_lives
 		current_health = max_health
