@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://cvo8y8lgyvgm3"]
+[gd_scene load_steps=20 format=3 uid="uid://cvo8y8lgyvgm3"]
 
 [ext_resource type="PackedScene" uid="uid://cmflrgaamfdj5" path="res://scenes/player.tscn" id="1_r3n07"]
+[ext_resource type="Script" path="res://scenes/world.gd" id="1_yiw3x"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_34p18"]
 [ext_resource type="Texture2D" uid="uid://cdh7pjpdqbnty" path="res://art/Background/Background_Fujiyama.png" id="2_jhi0m"]
 [ext_resource type="Texture2D" uid="uid://brrhv2ofkuu3" path="res://icon.svg" id="3_41x5a"]
@@ -12,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bn3fspe8fbo3y" path="res://scenes/spike.tscn" id="9_ncu5b"]
 [ext_resource type="Texture2D" uid="uid://fuw3sifcxd4g" path="res://art/Assets/Tiles.png" id="10_jhcq4"]
 [ext_resource type="Texture2D" uid="uid://crjfatubwsj27" path="res://art/Background/Background_Parallax_Forrest_1_new.png" id="11_q432j"]
+[ext_resource type="PackedScene" uid="uid://bc07air4dspd0" path="res://scenes/pause_menu.tscn" id="14_i7rho"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lmq0f"]
 texture = ExtResource("10_jhcq4")
@@ -148,7 +150,7 @@ texture = ExtResource("10_jhcq4")
 0:2/0 = 0
 0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:2/0/physics_layer_0/angular_velocity = 0.0
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.375, -8, 8, -8, 8, 8, -6, 8)
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.375, -8, 8, -8, 8, 8, -4.75, 8)
 1:2/0 = 0
 1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:2/0/physics_layer_0/angular_velocity = 0.0
@@ -1448,6 +1450,11 @@ size = Vector2(163, 54)
 
 [node name="World" type="Node2D"]
 position = Vector2(2, 2)
+script = ExtResource("1_yiw3x")
+
+[node name="PauseLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="PauseLayer" instance=ExtResource("14_i7rho")]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

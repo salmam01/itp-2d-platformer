@@ -30,19 +30,27 @@ offset_top = -101.0
 offset_right = 35.0
 grow_horizontal = 2
 grow_vertical = 0
+focus_neighbor_top = NodePath("Quit_Button")
+focus_neighbor_bottom = NodePath("Options_Button")
 
 [node name="Start_Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Quit_Button")
+focus_neighbor_bottom = NodePath("../Options_Button")
 theme_override_fonts/font = ExtResource("3_0641o")
 text = "Start"
 
 [node name="Options_Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Start_Button")
+focus_neighbor_bottom = NodePath("../Quit_Button")
 theme_override_fonts/font = ExtResource("3_0641o")
 text = "Options"
 
 [node name="Quit_Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Options_Button")
+focus_neighbor_bottom = NodePath("../Start_Button")
 theme_override_fonts/font = ExtResource("3_0641o")
 text = "Quit"
 
