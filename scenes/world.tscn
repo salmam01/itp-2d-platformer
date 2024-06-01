@@ -1480,9 +1480,9 @@ position = Vector2(2, 2)
 script = ExtResource("1_yiw3x")
 
 [node name="PauseLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="PauseMenu" parent="PauseLayer" instance=ExtResource("14_i7rho")]
+visible = false
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
