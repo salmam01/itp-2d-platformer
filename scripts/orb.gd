@@ -16,6 +16,11 @@ func _on_player_free_dash_orb():
 	position.y -= void_level
 func _on_player_show_dash_orb():
 	position.y += void_level
+
+func _on_player_free_dash_orb_2():
+	position.y -= void_level
+func _on_player_show_dash_orb_2():
+	position.y += void_level
 	
 func _on_player_free_jump_orb():
 	position.y -= void_level

@@ -23,11 +23,13 @@ var jump_count = 0
 signal free_orb()
 signal free_health_orb()
 signal free_dash_orb()
+signal free_dash_orb_2()
 signal free_jump_orb()
 signal free_jump_orb_2()
 signal show_orb()
 signal show_health_orb()
 signal show_dash_orb()
+signal show_dash_orb_2()
 signal show_jump_orb()
 signal show_jump_orb_2()
 
@@ -137,13 +139,19 @@ func _on_dash_orb_body_entered(body):
 		dash()
 	emit_signal("free_dash_orb")
 
+func _on_dash_orb_2_body_entered(body):
+	if Input.is_action_pressed("pick_up") && current_speed_boosts != max_speed_boosts:
+		current_speed_boosts += 1
+	else:
+		dash()
+	emit_signal("free_dash_orb_2")
+
 func _on_jump_orb_body_entered(body):
 	if Input.is_action_pressed("pick_up") && current_jump_boosts != max_jump_boosts:
 		current_jump_boosts += 1
 	else:
 		jump_boost()
 	emit_signal("free_jump_orb")
-
 
 func _on_jump_orb_2_body_entered(body):
 	if Input.is_action_pressed("pick_up") && current_jump_boosts != max_jump_boosts:
@@ -156,6 +164,7 @@ func reset_orbs():
 	emit_signal("show_orb")
 	emit_signal("show_health_orb")
 	emit_signal("show_dash_orb")
+	emit_signal("show_dash_orb_2")
 	emit_signal("show_jump_orb")
 	emit_signal("show_jump_orb_2")
 	
@@ -170,3 +179,7 @@ func jump_boost():
 	var timer := get_tree().create_timer(2)
 	timer.timeout.connect(func(): default_jump_force = 700)
 	timer.timeout.connect(func(): reduced_jump_force = 500)
+
+
+func _on_free_dash_orb_2():
+	pass # Replace with function body.

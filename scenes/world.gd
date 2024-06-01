@@ -18,3 +18,4 @@ func toggle_pause_menu():
 	
 	if paused:
 		resume_button.grab_focus() 
+
