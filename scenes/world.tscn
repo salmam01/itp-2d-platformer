@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bn3fspe8fbo3y" path="res://scenes/spike.tscn" id="9_ncu5b"]
 [ext_resource type="Texture2D" uid="uid://fuw3sifcxd4g" path="res://art/Assets/Tiles.png" id="10_jhcq4"]
 [ext_resource type="Texture2D" uid="uid://crjfatubwsj27" path="res://art/Background/Background_Parallax_Forrest_1_new.png" id="11_q432j"]
-[ext_resource type="PackedScene" uid="uid://bc07air4dspd0" path="res://scenes/pause_menu.tscn" id="14_i7rho"]
+[ext_resource type="PackedScene" path="res://scenes/pause_menu.tscn" id="14_i7rho"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lmq0f"]
 texture = ExtResource("10_jhcq4")
