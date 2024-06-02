@@ -20,6 +20,41 @@ extends CharacterBody2D
 var jump_force_state = default_jump_force
 var jump_count = 0
 
+
+@export var current_direction = 0 #0 right, 1 left
+@onready var _body_right = $PlayerBodyRight
+@onready var _body_left = $PlayerBodyLeft
+@onready var _tail1_right = $Tail1Right
+@onready var _tail1_left = $Tail1Left
+@onready var _tail2_right = $Tail2Right
+@onready var _tail2_left = $Tail2Left
+@onready var _tail3_right = $Tail3Right
+@onready var _tail3_left = $Tail3Left
+@onready var _tail4_right = $Tail4Right
+@onready var _tail4_left = $Tail4Left
+@onready var _tail5_right = $Tail5Right
+@onready var _tail5_left = $Tail5Left
+@onready var _tail6_right = $Tail6Right
+@onready var _tail6_left = $Tail6Left
+@onready var _tail7_right = $Tail7Right
+@onready var _tail7_left = $Tail7Left
+@onready var _tail8_right = $Tail8Right
+@onready var _tail8_left = $Tail8Left
+@onready var _tail9_right = $Tail9Right
+@onready var _tail9_left = $Tail9Left
+
+@onready var _tails_right = [
+	_tail1_right, _tail2_right, _tail3_right, 
+	_tail4_right, _tail5_right, _tail6_right, 
+	_tail7_right, _tail8_right, _tail9_right
+	]
+@onready var _tails_left = [
+	_tail1_left, _tail2_left, _tail3_left, 
+	_tail4_left, _tail5_left, _tail6_left, 
+	_tail7_left, _tail8_left, _tail9_left
+]
+
+
 signal free_orb()
 signal free_health_orb()
 signal free_dash_orb()
@@ -47,6 +82,20 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("jump") and jump_count < max_jumps:
 		velocity.y = -default_jump_force
+		if current_direction == 0:
+			toggle_body_visability("left", "right")
+			if jump_count == 1:
+				_body_right.stop()
+				stop_tail_animation()
+			_body_right.play("jump")
+			toggle_tail_animation("right", "jump")
+		else:
+			toggle_body_visability("right", "left")
+			if jump_count == 1:
+				_body_left.stop()
+				stop_tail_animation()
+			_body_left.play("jump")
+			toggle_tail_animation("left", "jump")
 		jump_count += 1
 		
 	if Input.is_action_pressed("dash") && current_speed_boosts > 0:
@@ -61,6 +110,32 @@ func _physics_process(delta):
 	velocity.x = speed * horizontal_direction
 	move_and_slide()
 	
+	if Input.is_action_pressed("move_right"):
+		current_direction = 0
+		toggle_body_visability("left", "right")
+		toggle_tail_visability("left", "right")
+		if jump_count == 0:
+			_body_right.play("run")
+			toggle_tail_animation("right", "run")
+	elif Input.is_action_pressed("move_left"):
+		current_direction = 1
+		toggle_body_visability("right", "left")
+		toggle_tail_visability("right", "left")
+		if jump_count == 0:
+			_body_left.play("run")
+			toggle_tail_animation("left", "run")
+	else:
+		if current_direction == 0:
+			toggle_body_visability("left", "right")
+			if jump_count == 0:
+				_body_right.play("idle")
+				toggle_tail_animation("right", "idle")
+		else:
+			toggle_body_visability("right", "left")
+			if jump_count == 0:
+				_body_left.play("idle")
+				toggle_tail_animation("left", "idle")
+	
 	Lives_UI.text = "Lives: " + str(current_lives)
 	Lives_UI.text += "\nHealth: " + str(current_health)
 	Lives_UI.text += "\nOrbs: " + str(orbs)
@@ -71,6 +146,8 @@ func _ready():
 	# Set the starting position of the player
 	position = starting_position  # Set the desired X and Y coordinates
 	update_life_gui()
+	toggle_body_visability("left", "right")
+	toggle_tail_visability("left", "right")
 	
 func update_life_gui():
 	for i in range(max_lives):
@@ -84,17 +161,25 @@ func lose_life():
 	if current_lives > 0:
 		current_lives -= 1
 		update_life_gui()
+		if current_direction == 0:
+			toggle_tail_visability("left", "right")
+		else:
+			toggle_tail_visability("right", "left")
 
 func gain_life():
 	if current_lives < max_lives:
 		current_lives += 1
 		update_life_gui()
+		if current_direction == 0:
+			toggle_tail_visability("left", "right")
+		else:
+			toggle_tail_visability("right", "left")
 
 # Teleport the player back to the starting position
 func teleport_to_starting_position():
 	position = starting_position
 	
-func _on_level_end_body_entered(body): #eneting the end of level
+func _on_level_end_body_entered(body): #entering the end of level
 	reset_orbs()
 	teleport_to_starting_position()
 
@@ -170,3 +255,44 @@ func jump_boost():
 	var timer := get_tree().create_timer(2)
 	timer.timeout.connect(func(): default_jump_force = 700)
 	timer.timeout.connect(func(): reduced_jump_force = 500)
+
+func toggle_body_visability(start, end):
+	if start == "left" && end == "right":
+		if _body_left.visible == true:
+			_body_left.visible = false
+		if _body_right.visible == false:
+			_body_right.visible = true
+	elif start == "right" && end == "left":
+		if _body_right.visible == true:
+				_body_right.visible = false
+		if _body_left.visible == false:
+			_body_left.visible = true
+			
+func toggle_tail_visability(start, end):
+	for t in range(0, current_lives):
+		if start == "left" && end == "right":
+			if _tails_left[t].visible == true:
+				_tails_left[t].visible = false
+			if _tails_right[t].visible == false:
+				_tails_right[t].visible = true
+		elif start == "right" && end == "left":
+			if _tails_right[t].visible == true:
+				_tails_right[t].visible = false
+			if _tails_left[t].visible == false:
+				_tails_left[t].visible = true
+	for t in range(current_lives, 9):
+		_tails_left[t].visible = false
+		_tails_right[t].visible = false
+	
+func toggle_tail_animation(direction, animation):
+	if direction == "right":
+		for t in _tails_right:
+			t.play(animation)
+	if direction == "left":
+		for t in _tails_left:
+			t.play(animation)
+func stop_tail_animation():
+	for t in _tails_right:
+		t.stop()
+	for t in _tails_left:
+		t.stop()
