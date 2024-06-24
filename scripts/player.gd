@@ -8,7 +8,7 @@ extends CharacterBody2D
 @export var starting_position = Vector2(150,200)
 @export var orbs = 0
 @export var max_lives = 9
-@export var current_lives = 8
+@export var current_lives = 1
 @export var max_health = 3
 @export var current_health = 3
 @export var max_jump_boosts = 3
@@ -59,8 +59,13 @@ signal free_orb()
 signal free_health_orb()
 signal free_dash_orb()
 signal free_dash_orb_2()
+signal free_dash_orb_3()
+signal free_dash_orb_4()
 signal free_jump_orb()
 signal free_jump_orb_2()
+signal free_jump_orb_3()
+signal free_jump_orb_4()
+signal free_jump_orb_5()
 signal show_orb()
 signal show_health_orb()
 signal show_dash_orb()
