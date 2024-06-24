@@ -212,29 +212,12 @@ func _on_health_orb_body_entered(body):
 			#print(orb_count)
 			emit_signal("free_health_orb")
 
-func _on_spike_body_entered(body):
-	current_health -= 1
-	if current_health == 0:
-		lose_life()
-		if current_lives == 0:
-			current_lives = max_lives
-		current_health = max_health
-	#emit_signal("show_orb")
-	#teleport_to_starting_position()
-
 func _on_dash_orb_body_entered(body):
 	if Input.is_action_pressed("pick_up") && current_speed_boosts != max_speed_boosts:
 		current_speed_boosts += 1
 	else:
 		dash()
 	emit_signal("free_dash_orb")
-
-func _on_dash_orb_2_body_entered(body):
-	if Input.is_action_pressed("pick_up") && current_speed_boosts != max_speed_boosts:
-		current_speed_boosts += 1
-	else:
-		dash()
-	emit_signal("free_dash_orb_2")
 
 func _on_jump_orb_body_entered(body):
 	if Input.is_action_pressed("pick_up") && current_jump_boosts != max_jump_boosts:
@@ -249,6 +232,17 @@ func _on_jump_orb_2_body_entered(body):
 	else:
 		jump_boost()
 	emit_signal("free_jump_orb_2")
+
+func _on_spike_body_entered(body):
+	current_health -= 1
+	if current_health == 0:
+		lose_life()
+		if current_lives == 0:
+			current_lives = max_lives
+		current_health = max_health
+	#emit_signal("show_orb")
+	#teleport_to_starting_position()
+
 
 func reset_orbs():
 	emit_signal("show_orb")
