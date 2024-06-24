@@ -53,7 +53,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_egi4n")
 }],
-"loop": false,
+"loop": true,
 "name": &"collected",
 "speed": 5.0
 }, {
@@ -65,11 +65,11 @@ animations = [{
 
 [node name="Orb" type="Area2D"]
 script = ExtResource("1_ref10")
+void_level = null
+orb_visible = null
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-modulate = Color(0.27451, 1, 1, 1)
-position = Vector2(-1.19209e-07, -2.38419e-07)
-scale = Vector2(29.0284, 29.0284)
+scale = Vector2(16, 16)
 mesh = SubResource("SphereMesh_olygf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -78,7 +78,8 @@ shape = SubResource("CircleShape2D_415xe")
 
 [node name="OrbCollected" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(2.78125, 2.78125)
 sprite_frames = SubResource("SpriteFrames_dku6o")
 animation = &"collected"
-frame_progress = 0.633156
+frame_progress = 0.736526
+
+[connection signal="animation_finished" from="OrbCollected" to="." method="_on_orb_collected_animation_finished"]
