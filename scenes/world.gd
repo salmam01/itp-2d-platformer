@@ -6,6 +6,7 @@ var paused = false
 
 func _ready():
 	pause_menu.visible = false
+	$LevelEnd/FlagAnimation.play("idle")
 
 func _process(delta):
 	if Input.is_action_just_pressed("pause"):

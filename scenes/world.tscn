@@ -1,15 +1,15 @@
-[gd_scene load_steps=20 format=3 uid="uid://cvo8y8lgyvgm3"]
+[gd_scene load_steps=22 format=3 uid="uid://cvo8y8lgyvgm3"]
 
 [ext_resource type="PackedScene" uid="uid://cmflrgaamfdj5" path="res://scenes/player.tscn" id="1_r3n07"]
 [ext_resource type="Script" path="res://scenes/world.gd" id="1_yiw3x"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="2_34p18"]
 [ext_resource type="Texture2D" uid="uid://cdh7pjpdqbnty" path="res://art/Background/Background_Fujiyama.png" id="2_jhi0m"]
-[ext_resource type="Texture2D" uid="uid://brrhv2ofkuu3" path="res://icon.svg" id="3_41x5a"]
 [ext_resource type="PackedScene" uid="uid://cvoxe1djga1wb" path="res://scenes/orb.tscn" id="4_8jt8u"]
 [ext_resource type="PackedScene" uid="uid://bt835pn6l84m5" path="res://scenes/dash_orb.tscn" id="5_ffj1t"]
 [ext_resource type="PackedScene" uid="uid://cv8j8tgu5cp0j" path="res://scenes/health_orb.tscn" id="5_p5el3"]
 [ext_resource type="Script" path="res://scripts/orb.gd" id="6_d6vwp"]
 [ext_resource type="PackedScene" uid="uid://guq8lpof3qgm" path="res://scenes/jump_orb.tscn" id="7_q2s87"]
+[ext_resource type="Texture2D" uid="uid://dcijc2vs47nlp" path="res://art/Level End/Checkpoint (Flag Idle)(64x64).png" id="8_rvmph"]
 [ext_resource type="PackedScene" uid="uid://bn3fspe8fbo3y" path="res://scenes/spike.tscn" id="9_ncu5b"]
 [ext_resource type="Texture2D" uid="uid://fuw3sifcxd4g" path="res://art/Assets/Tiles.png" id="10_jhcq4"]
 [ext_resource type="Texture2D" uid="uid://crjfatubwsj27" path="res://art/Background/Background_Parallax_Forrest_1_new.png" id="11_q432j"]
@@ -1467,7 +1467,28 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_lmq0f")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7gldu"]
-size = Vector2(88, 91)
+size = Vector2(145, 144)
+
+[sub_resource type="Animation" id="Animation_3haad"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_77x02"]
+_data = {
+"idle": SubResource("Animation_3haad")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ht5q7"]
 size = Vector2(44135, 170)
@@ -1520,15 +1541,24 @@ collision_mask = 129
 script = ExtResource("2_34p18")
 
 [node name="LevelEnd" type="Area2D" parent="."]
-position = Vector2(37418, -564)
+position = Vector2(37417, -532)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelEnd"]
-position = Vector2(0, 0.5)
+position = Vector2(-28.5, -26)
 shape = SubResource("RectangleShape2D_7gldu")
 
 [node name="Sprite2D" type="Sprite2D" parent="LevelEnd"]
 modulate = Color(1, 1, 1, 0.454902)
-texture = ExtResource("3_41x5a")
+texture_filter = 1
+position = Vector2(-36.0001, -52.0003)
+scale = Vector2(3.03126, 3.03126)
+texture = ExtResource("8_rvmph")
+hframes = 10
+
+[node name="FlagAnimation" type="AnimationPlayer" parent="LevelEnd"]
+libraries = {
+"": SubResource("AnimationLibrary_77x02")
+}
 
 [node name="Void" type="Area2D" parent="."]
 position = Vector2(1585, 732)
