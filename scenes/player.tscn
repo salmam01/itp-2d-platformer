@@ -5,28 +5,19 @@
 [ext_resource type="Texture2D" uid="uid://c4shsy4soqv0l" path="res://art/Kitsune Run Cycle Assets/Tail 1 Idle 1.png" id="1_wg18c"]
 [ext_resource type="Texture2D" uid="uid://dxrt7evy3nafy" path="res://art/Kitsune Run Cycle Assets/Tail 9 Idle 2.png" id="2_26f2r"]
 [ext_resource type="Texture2D" uid="uid://byhij8bd1ekrn" path="res://art/Kitsune Run Cycle Assets/Tail 1 Idle 2.png" id="2_ebhe3"]
-[ext_resource type="Texture2D" uid="uid://cxq0jl145e2uv" path="res://art/Foxhead_Logo/foxhead1.png" id="2_s8ulm"]
-[ext_resource type="Texture2D" uid="uid://5h8tq7lh1n7u" path="res://art/Foxhead_Logo/foxhead2.png" id="3_e1w7r"]
 [ext_resource type="Texture2D" uid="uid://ctc0ggl5o4ioy" path="res://art/Kitsune Run Cycle Assets/Tail 9 Run 4_Jump 1.png" id="3_e28dc"]
 [ext_resource type="Texture2D" uid="uid://dv32p5cimnt54" path="res://art/Kitsune Run Cycle Assets/Tail 9 Run 1_Jump 2.png" id="4_6qaxj"]
 [ext_resource type="Texture2D" uid="uid://2gir8gpn65xy" path="res://art/Kitsune Run Cycle Assets/Body Idle 2.png" id="4_dvfty"]
-[ext_resource type="Texture2D" uid="uid://due2qljc4lrqh" path="res://art/Foxhead_Logo/foxhead3.png" id="4_ynjal"]
 [ext_resource type="Texture2D" uid="uid://ukq40bmji6oe" path="res://art/Kitsune Run Cycle Assets/Tail 9 Run 2.png" id="5_1140l"]
 [ext_resource type="Texture2D" uid="uid://boto65362sflo" path="res://art/Kitsune Run Cycle Assets/Body Run 4_Jump 1.png" id="5_lm4ab"]
-[ext_resource type="Texture2D" uid="uid://cynbtbvkhl2t2" path="res://art/Foxhead_Logo/foxhead4.png" id="5_ysqmf"]
-[ext_resource type="Texture2D" uid="uid://wugfvw3rvh28" path="res://art/Foxhead_Logo/foxhead5.png" id="6_lway0"]
 [ext_resource type="Texture2D" uid="uid://bjsm2b01g14w7" path="res://art/Kitsune Run Cycle Assets/Body Run 1_Jump 2.png" id="6_ofsjp"]
 [ext_resource type="Texture2D" uid="uid://cxpsoxbyes107" path="res://art/Kitsune Run Cycle Assets/Tail 9 Run 3.png" id="6_yo1on"]
-[ext_resource type="Texture2D" uid="uid://dporjh3hgw3uv" path="res://art/Foxhead_Logo/foxhead6.png" id="7_hpyyx"]
 [ext_resource type="Texture2D" uid="uid://bheplngkkr83g" path="res://art/Kitsune Run Cycle Assets/Tail 7 Idle 1.png" id="7_kgli1"]
 [ext_resource type="Texture2D" uid="uid://wiijajma38x2" path="res://art/Kitsune Run Cycle Assets/Body Run 2.png" id="7_sglxg"]
 [ext_resource type="Texture2D" uid="uid://cmhb7q4xuhq6h" path="res://art/Kitsune Run Cycle Assets/Body Run 3.png" id="8_bud8l"]
 [ext_resource type="Texture2D" uid="uid://yren8ajh3ilv" path="res://art/Kitsune Run Cycle Assets/Tail 7 Idle 2.png" id="8_chmvd"]
-[ext_resource type="Texture2D" uid="uid://c6rgbw2colblr" path="res://art/Foxhead_Logo/foxhead7.png" id="8_vhflp"]
 [ext_resource type="Texture2D" uid="uid://bi8acj5wbpr0l" path="res://art/Kitsune Run Cycle Assets/Tail 7 Run 4_Jump 1.png" id="9_4m4b5"]
-[ext_resource type="Texture2D" uid="uid://mdtvdspdfwna" path="res://art/Foxhead_Logo/foxhead8.png" id="9_hwhuc"]
 [ext_resource type="Texture2D" uid="uid://dajiwfep2d4v5" path="res://art/Kitsune Run Cycle Assets/Tail 7 Run 1_Jump 2.png" id="10_8g4gt"]
-[ext_resource type="Texture2D" uid="uid://dd52cq4m41xjm" path="res://art/Foxhead_Logo/foxhead9.png" id="10_8rvou"]
 [ext_resource type="Texture2D" uid="uid://bt4y1oxawfqlg" path="res://art/Kitsune Run Cycle Assets/Tail 7 Run 2.png" id="11_q5jlt"]
 [ext_resource type="Texture2D" uid="uid://b3fgk1xe5he6c" path="res://art/Kitsune Run Cycle Assets/Tail 7 Run 3.png" id="12_3uedh"]
 [ext_resource type="Texture2D" uid="uid://vvmrmrqj21q1" path="res://art/Kitsune Run Cycle Assets/Tail 5 Idle 1.png" id="13_kbgy2"]
@@ -69,6 +60,15 @@
 [ext_resource type="Texture2D" uid="uid://bcdfofkeardn5" path="res://art/Kitsune Run Cycle Assets/Tail 8 Run 1_Jump 2.png" id="52_l0yrl"]
 [ext_resource type="Texture2D" uid="uid://d2kc7lvj1y1ys" path="res://art/Kitsune Run Cycle Assets/Tail 8 Run 2.png" id="53_udqb4"]
 [ext_resource type="Texture2D" uid="uid://w0ju5e0sa8bu" path="res://art/Kitsune Run Cycle Assets/Tail 8 Run 3.png" id="54_oym2x"]
+[ext_resource type="Texture2D" uid="uid://bmegfij7ixy60" path="res://art/Fox Lives GUI/rainbow/foxlives1.png" id="61_ii27q"]
+[ext_resource type="Texture2D" uid="uid://b7g4rkl5ocf3p" path="res://art/Fox Lives GUI/rainbow/foxlives2.png" id="62_xfpf2"]
+[ext_resource type="Texture2D" uid="uid://b0gu3ur4dqvpm" path="res://art/Fox Lives GUI/rainbow/foxlives3.png" id="63_k4jws"]
+[ext_resource type="Texture2D" uid="uid://cpdemoyi6fhv7" path="res://art/Fox Lives GUI/rainbow/foxlives4.png" id="64_rbtss"]
+[ext_resource type="Texture2D" uid="uid://cyw7yxcj4xdre" path="res://art/Fox Lives GUI/rainbow/foxlives5.png" id="65_hjlpb"]
+[ext_resource type="Texture2D" uid="uid://6qajwp6ph2le" path="res://art/Fox Lives GUI/rainbow/foxlives6.png" id="66_pnbxp"]
+[ext_resource type="Texture2D" uid="uid://bxes6blg6e7tl" path="res://art/Fox Lives GUI/rainbow/foxlives7.png" id="67_hlnwl"]
+[ext_resource type="Texture2D" uid="uid://f0540jngpffa" path="res://art/Fox Lives GUI/rainbow/foxlives8.png" id="68_tfkgq"]
+[ext_resource type="Texture2D" uid="uid://6n47eh702ub1" path="res://art/Fox Lives GUI/rainbow/foxlives9.png" id="69_bl3ki"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lxhn5"]
 animations = [{
@@ -1057,45 +1057,45 @@ scale = Vector2(5, 4.92)
 
 [node name="TextureRect" type="TextureRect" parent="GUI/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("2_s8ulm")
+texture = ExtResource("61_ii27q")
 expand_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="GUI/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("3_e1w7r")
+texture = ExtResource("62_xfpf2")
 expand_mode = 2
 
 [node name="TextureRect3" type="TextureRect" parent="GUI/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("4_ynjal")
+texture = ExtResource("63_k4jws")
 expand_mode = 2
 
 [node name="TextureRect4" type="TextureRect" parent="GUI/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("5_ysqmf")
+texture = ExtResource("64_rbtss")
 expand_mode = 2
 
 [node name="TextureRect5" type="TextureRect" parent="GUI/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("6_lway0")
+texture = ExtResource("65_hjlpb")
 expand_mode = 2
 
 [node name="TextureRect6" type="TextureRect" parent="GUI/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("7_hpyyx")
+texture = ExtResource("66_pnbxp")
 expand_mode = 2
 
 [node name="TextureRect7" type="TextureRect" parent="GUI/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("8_vhflp")
+texture = ExtResource("67_hlnwl")
 expand_mode = 2
 
 [node name="TextureRect8" type="TextureRect" parent="GUI/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("9_hwhuc")
+texture = ExtResource("68_tfkgq")
 expand_mode = 2
 
 [node name="TextureRect9" type="TextureRect" parent="GUI/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("10_8rvou")
+texture = ExtResource("69_bl3ki")
 expand_mode = 2
