@@ -2170,6 +2170,83 @@ position = Vector2(1, 1)
 position = Vector2(74, 31)
 shape = SubResource("RectangleShape2D_b2jqf")
 
+[node name="Spike4" parent="." instance=ExtResource("9_ncu5b")]
+z_index = -1
+position = Vector2(12587, -97)
+
+[node name="Spike" type="Area2D" parent="Spike4"]
+position = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike4/Spike"]
+position = Vector2(74, 31)
+shape = SubResource("RectangleShape2D_b2jqf")
+
+[node name="Spike5" parent="." instance=ExtResource("9_ncu5b")]
+z_index = -1
+position = Vector2(16750, -95)
+
+[node name="Spike" type="Area2D" parent="Spike5"]
+position = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike5/Spike"]
+position = Vector2(74, 31)
+shape = SubResource("RectangleShape2D_b2jqf")
+
+[node name="Spike6" parent="." instance=ExtResource("9_ncu5b")]
+z_index = -1
+position = Vector2(19236, -1504)
+
+[node name="Spike" type="Area2D" parent="Spike6"]
+position = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike6/Spike"]
+position = Vector2(74, 31)
+shape = SubResource("RectangleShape2D_b2jqf")
+
+[node name="Spike7" parent="." instance=ExtResource("9_ncu5b")]
+z_index = -1
+position = Vector2(21017, 384)
+
+[node name="Spike" type="Area2D" parent="Spike7"]
+position = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike7/Spike"]
+position = Vector2(74, 31)
+shape = SubResource("RectangleShape2D_b2jqf")
+
+[node name="Spike8" parent="." instance=ExtResource("9_ncu5b")]
+z_index = -1
+position = Vector2(25512, 129)
+
+[node name="Spike" type="Area2D" parent="Spike8"]
+position = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike8/Spike"]
+position = Vector2(74, 31)
+shape = SubResource("RectangleShape2D_b2jqf")
+
+[node name="Spike9" parent="." instance=ExtResource("9_ncu5b")]
+z_index = -1
+position = Vector2(32778, -542)
+
+[node name="Spike" type="Area2D" parent="Spike9"]
+position = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike9/Spike"]
+position = Vector2(74, 31)
+shape = SubResource("RectangleShape2D_b2jqf")
+
+[node name="Spike10" parent="." instance=ExtResource("9_ncu5b")]
+z_index = -1
+position = Vector2(16315, -1054)
+
+[node name="Spike" type="Area2D" parent="Spike10"]
+position = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike10/Spike"]
+position = Vector2(74, 31)
+shape = SubResource("RectangleShape2D_b2jqf")
+
 [connection signal="free_dash_orb" from="Player" to="DashOrb" method="_on_player_free_dash_orb"]
 [connection signal="free_dash_orb_2" from="Player" to="Player" method="_on_free_dash_orb_2"]
 [connection signal="free_health_orb" from="Player" to="HealthOrb" method="_on_player_free_health_orb"]
@@ -2221,5 +2298,12 @@ shape = SubResource("RectangleShape2D_b2jqf")
 [connection signal="body_entered" from="Spike/Spike" to="Player" method="_on_spike_body_entered"]
 [connection signal="body_entered" from="Spike2/Spike" to="Player" method="_on_spike_body_entered"]
 [connection signal="body_entered" from="Spike3/Spike" to="Player" method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike4/Spike" to="Player" method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike5/Spike" to="Player" method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike6/Spike" to="Player" method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike7/Spike" to="Player" method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike8/Spike" to="Player" method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike9/Spike" to="Player" method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike10/Spike" to="Player" method="_on_spike_body_entered"]
 
 [editable path="Orb"]
