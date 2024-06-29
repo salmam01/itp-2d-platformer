@@ -1578,11 +1578,11 @@ position = Vector2(7384, -677)
 script = ExtResource("11_wi82m")
 
 [node name="HealthOrb2" parent="." instance=ExtResource("5_p5el3")]
-position = Vector2(7840, -1618)
+position = Vector2(7841, -1603)
 script = ExtResource("11_wi82m")
 
 [node name="HealthOrb3" parent="." instance=ExtResource("5_p5el3")]
-position = Vector2(18507, -636)
+position = Vector2(18509, -649)
 script = ExtResource("11_wi82m")
 
 [node name="HealthOrb4" parent="." instance=ExtResource("5_p5el3")]
@@ -1598,7 +1598,7 @@ position = Vector2(26002, -767)
 script = ExtResource("11_wi82m")
 
 [node name="HealthOrb7" parent="." instance=ExtResource("5_p5el3")]
-position = Vector2(3442, -472)
+position = Vector2(3441, -481)
 script = ExtResource("11_wi82m")
 
 [node name="DashOrb" parent="." instance=ExtResource("5_ffj1t")]
@@ -1606,7 +1606,7 @@ position = Vector2(10109, -108)
 script = ExtResource("16_q4gu6")
 
 [node name="DashOrb2" parent="." instance=ExtResource("5_ffj1t")]
-position = Vector2(13805, -90)
+position = Vector2(13810, -104)
 script = ExtResource("16_q4gu6")
 
 [node name="DashOrb3" parent="." instance=ExtResource("5_ffj1t")]
@@ -1618,23 +1618,23 @@ position = Vector2(33438, -544)
 script = ExtResource("16_q4gu6")
 
 [node name="JumpOrb" parent="." instance=ExtResource("7_q2s87")]
-position = Vector2(6363, -123)
+position = Vector2(2797, 25)
 script = ExtResource("18_q38sm")
 
 [node name="JumpOrb2" parent="." instance=ExtResource("7_q2s87")]
-position = Vector2(2860, 32)
+position = Vector2(6532, -136)
 script = ExtResource("18_q38sm")
 
 [node name="JumpOrb3" parent="." instance=ExtResource("7_q2s87")]
-position = Vector2(8723, -1069)
+position = Vector2(8655, -1066)
 script = ExtResource("18_q38sm")
 
 [node name="JumpOrb4" parent="." instance=ExtResource("7_q2s87")]
-position = Vector2(20071, -1)
+position = Vector2(17646, -106)
 script = ExtResource("18_q38sm")
 
 [node name="JumpOrb5" parent="." instance=ExtResource("7_q2s87")]
-position = Vector2(17647, -101)
+position = Vector2(20151, -10)
 script = ExtResource("18_q38sm")
 
 [node name="Spike" parent="." instance=ExtResource("9_ncu5b")]
@@ -1761,10 +1761,6 @@ shape = SubResource("RectangleShape2D_b2jqf")
 [connection signal="show_orb" from="Player" to="DashOrb3" method="_on_player_show_orb"]
 [connection signal="show_orb" from="Player" to="DashOrb4" method="_on_player_show_orb"]
 [connection signal="show_orb" from="Player" to="JumpOrb" method="_on_player_show_orb"]
-[connection signal="show_orb" from="Player" to="JumpOrb2" method="_on_player_show_orb"]
-[connection signal="show_orb" from="Player" to="JumpOrb3" method="_on_player_show_orb"]
-[connection signal="show_orb" from="Player" to="JumpOrb4" method="_on_player_show_orb"]
-[connection signal="show_orb" from="Player" to="JumpOrb5" method="_on_player_show_orb"]
 [connection signal="body_entered" from="LevelEnd" to="Player" method="_on_level_end_body_entered"]
 [connection signal="body_entered" from="Void" to="Player" method="_on_void_body_entered"]
 [connection signal="body_entered" from="Orb" to="Player" method="_on_orb_body_entered"]
@@ -1796,13 +1792,13 @@ shape = SubResource("RectangleShape2D_b2jqf")
 [connection signal="body_entered" from="DashOrb4" to="DashOrb4" method="_on_body_entered"]
 [connection signal="body_entered" from="JumpOrb" to="Player" method="_on_jump_orb_body_entered"]
 [connection signal="body_entered" from="JumpOrb" to="JumpOrb" method="_on_body_entered"]
-[connection signal="body_entered" from="JumpOrb2" to="Player" method="_on_jump_orb_2_body_entered"]
+[connection signal="body_entered" from="JumpOrb2" to="Player" method="_on_jump_orb_body_entered"]
 [connection signal="body_entered" from="JumpOrb2" to="JumpOrb2" method="_on_body_entered"]
-[connection signal="body_entered" from="JumpOrb3" to="Player" method="_on_jump_orb_2_body_entered"]
+[connection signal="body_entered" from="JumpOrb3" to="Player" method="_on_jump_orb_body_entered"]
 [connection signal="body_entered" from="JumpOrb3" to="JumpOrb3" method="_on_body_entered"]
-[connection signal="body_entered" from="JumpOrb4" to="Player" method="_on_jump_orb_2_body_entered"]
+[connection signal="body_entered" from="JumpOrb4" to="Player" method="_on_jump_orb_body_entered"]
 [connection signal="body_entered" from="JumpOrb4" to="JumpOrb4" method="_on_body_entered"]
-[connection signal="body_entered" from="JumpOrb5" to="Player" method="_on_jump_orb_2_body_entered"]
+[connection signal="body_entered" from="JumpOrb5" to="Player" method="_on_jump_orb_body_entered"]
 [connection signal="body_entered" from="JumpOrb5" to="JumpOrb5" method="_on_body_entered"]
 [connection signal="body_entered" from="Spike/Spike" to="Player" method="_on_spike_body_entered"]
 [connection signal="body_entered" from="Spike2/Spike" to="Player" method="_on_spike_body_entered"]
@@ -1814,3 +1810,5 @@ shape = SubResource("RectangleShape2D_b2jqf")
 [connection signal="body_entered" from="Spike8/Spike" to="Player" method="_on_spike_body_entered"]
 [connection signal="body_entered" from="Spike9/Spike" to="Player" method="_on_spike_body_entered"]
 [connection signal="body_entered" from="Spike10/Spike" to="Player" method="_on_spike_body_entered"]
+
+[editable path="Spike"]

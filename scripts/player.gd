@@ -8,9 +8,8 @@ extends CharacterBody2D
 @export var starting_position = Vector2(150,200)
 @export var orbs = 0
 @export var max_lives = 9
-@export var current_lives = 1
-@export var max_health = 3
-@export var current_health = 3
+@export var default_lives = 3
+@export var current_lives = 3
 @export var max_jump_boosts = 3
 @export var current_jump_boosts = 0
 @export var max_speed_boosts = 3
@@ -127,7 +126,6 @@ func _physics_process(delta):
 				toggle_tail_animation("left", "idle")
 	
 	Lives_UI.text = "Lives: " + str(current_lives)
-	Lives_UI.text += "\nHealth: " + str(current_health)
 	Lives_UI.text += "\nOrbs: " + str(orbs)
 	Lives_UI.text += "\nSpeed Boosts: " + str(current_speed_boosts) + "  (Shift)"
 	Lives_UI.text += "\nJump Boosts: " + str(current_jump_boosts) + "  (F)"
@@ -155,6 +153,8 @@ func lose_life():
 			toggle_tail_visability("left", "right")
 		else:
 			toggle_tail_visability("right", "left")
+	if current_lives == 0:
+		reset_level()
 
 func gain_life():
 	if current_lives < max_lives:
@@ -170,28 +170,21 @@ func teleport_to_starting_position():
 	position = starting_position
 	
 func _on_level_end_body_entered(body): #entering the end of level
-	reset_orbs()
-	teleport_to_starting_position()
+	reset_level()
 
 func _on_void_body_entered(body): #falling off level
-	current_health = max_health
 	lose_life()
-	if current_lives == 0:
-		current_lives = max_lives
-	reset_orbs()
 	teleport_to_starting_position()
+	reset_orbs()
 
 func _on_orb_body_entered(body):
 	orbs += 1
+	update_life_gui()
 	
 func _on_health_orb_body_entered(body):
-	if(current_health < max_health):
-		current_health += 1
-
-	else:
-		if(current_lives < max_lives):
-			gain_life()
-			#print(orb_count)
+	if(current_lives < max_lives):
+		gain_life()
+		#print(orb_count)
 
 func _on_dash_orb_body_entered(body):
 	if Input.is_action_pressed("pick_up") && current_speed_boosts != max_speed_boosts:
@@ -205,23 +198,17 @@ func _on_jump_orb_body_entered(body):
 	else:
 		jump_boost()
 
-func _on_jump_orb_2_body_entered(body):
-	if Input.is_action_pressed("pick_up") && current_jump_boosts != max_jump_boosts:
-		current_jump_boosts += 1
-	else:
-		jump_boost()
-
 func _on_spike_body_entered(body):
-	current_health -= 1
-	if current_health == 0:
-		lose_life()
-		if current_lives == 0:
-			current_lives = max_lives
-		current_health = max_health
-	#teleport_to_starting_position()
+	lose_life()
 
 func reset_orbs():
 	emit_signal("show_orb")
+
+func reset_level():
+	teleport_to_starting_position()
+	current_lives = default_lives
+	update_life_gui()
+	reset_orbs()
 
 func dash():
 	speed = 1600
@@ -234,9 +221,6 @@ func jump_boost():
 	var timer := get_tree().create_timer(2)
 	timer.timeout.connect(func(): default_jump_force = 700)
 	timer.timeout.connect(func(): reduced_jump_force = 500)
-
-func _on_free_dash_orb_2():
-	pass # Replace with function body.
 
 func toggle_body_visability(start, end):
 	if start == "left" && end == "right":
