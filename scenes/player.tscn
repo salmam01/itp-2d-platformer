@@ -1049,10 +1049,10 @@ offset_bottom = -703.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GUI"]
 layout_mode = 0
-offset_left = -79.0
-offset_top = 1.0
-offset_right = 313.0
-offset_bottom = 41.0
+offset_left = -1037.0
+offset_top = 13.0
+offset_right = -644.0
+offset_bottom = 48.0
 scale = Vector2(5, 4.92)
 
 [node name="TextureRect" type="TextureRect" parent="GUI/HBoxContainer"]
