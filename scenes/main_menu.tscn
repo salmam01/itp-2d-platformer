@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://btd4s0ktt4yjp"]
 
 [ext_resource type="Script" path="res://scripts/Main_Menu.gd" id="1_l3hti"]
-[ext_resource type="Texture2D" uid="uid://bw5dckfgy4nu5" path="res://art/Background/main_menu_reference.png" id="2_kpcoj"]
+[ext_resource type="Texture2D" uid="uid://cxlsv0dawkbkw" path="res://art/Background/Start_Screen_with_BG.png" id="2_50kx1"]
 [ext_resource type="FontFile" uid="uid://dgyyto1smy2pg" path="res://art/KongJapanese-Wy7PA.otf" id="3_0641o"]
 
 [node name="Main_Menu" type="Control"]
@@ -14,9 +14,9 @@ grow_vertical = 2
 script = ExtResource("1_l3hti")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(686, 403)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_kpcoj")
+position = Vector2(639, 324.75)
+scale = Vector2(0.669792, 0.601389)
+texture = ExtResource("2_50kx1")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -25,9 +25,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -35.0
-offset_top = -101.0
-offset_right = 35.0
+offset_left = -16.0
+offset_top = -214.0
+offset_right = 54.0
+offset_bottom = -113.0
 grow_horizontal = 2
 grow_vertical = 0
 focus_neighbor_top = NodePath("Quit_Button")
