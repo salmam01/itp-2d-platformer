@@ -1525,6 +1525,7 @@ motion_scale = Vector2(0.1, 0.1)
 motion_mirroring = Vector2(2560, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BackgroundForrest"]
+texture_filter = 1
 texture_repeat = 3
 position = Vector2(-145.5, -123.5)
 scale = Vector2(2, 2)
