@@ -1,18 +1,134 @@
-[gd_scene load_steps=3 format=3 uid="uid://guq8lpof3qgm"]
+[gd_scene load_steps=18 format=3 uid="uid://guq8lpof3qgm"]
+
+[ext_resource type="Texture2D" uid="uid://f83g5o6da0sg" path="res://art/Orbs/Collected.png" id="1_fh4gv"]
+[ext_resource type="Texture2D" uid="uid://d1kgsw4484nxu" path="res://art/Orbs/Collectables-Sheet.png" id="2_jh4xh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxw75"]
+atlas = ExtResource("1_fh4gv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nloej"]
+atlas = ExtResource("1_fh4gv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_luvjs"]
+atlas = ExtResource("1_fh4gv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whawn"]
+atlas = ExtResource("1_fh4gv")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfo8e"]
+atlas = ExtResource("1_fh4gv")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikkmp"]
+atlas = ExtResource("1_fh4gv")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjb5q"]
+atlas = ExtResource("2_jh4xh")
+region = Rect2(128, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1co7e"]
+atlas = ExtResource("2_jh4xh")
+region = Rect2(144, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oq64r"]
+atlas = ExtResource("2_jh4xh")
+region = Rect2(160, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sj38y"]
+atlas = ExtResource("2_jh4xh")
+region = Rect2(176, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmupd"]
+atlas = ExtResource("2_jh4xh")
+region = Rect2(0, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oefhq"]
+atlas = ExtResource("2_jh4xh")
+region = Rect2(16, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htpkx"]
+atlas = ExtResource("2_jh4xh")
+region = Rect2(32, 128, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r8si7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxw75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nloej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_luvjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whawn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfo8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ikkmp")
+}],
+"loop": false,
+"name": &"collected",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjb5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1co7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oq64r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sj38y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmupd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oefhq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htpkx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bic5q"]
-radius = 1.4375
-
-[sub_resource type="SphereMesh" id="SphereMesh_0cid7"]
+radius = 2.25
 
 [node name="JumpOrb" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("2_jh4xh")
+hframes = 12
+vframes = 2
+frame = 8
+region_enabled = true
+region_rect = Rect2(0, 112, 192, 32)
+
+[node name="OrbAnimation" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_r8si7")
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 modulate = Color(0.443879, 0.56194, 1, 1)
 scale = Vector2(16, 16)
 shape = SubResource("CircleShape2D_bic5q")
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-position = Vector2(3.72529e-09, -1.19209e-07)
-scale = Vector2(46.0261, 45)
-mesh = SubResource("SphereMesh_0cid7")

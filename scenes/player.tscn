@@ -937,7 +937,7 @@ animation = &"jump"
 
 [node name="Tail9Left" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(-35, -70)
+position = Vector2(35, -70)
 rotation = 3.14159
 scale = Vector2(0.175, -0.175)
 sprite_frames = SubResource("SpriteFrames_r11eg")
@@ -945,7 +945,7 @@ animation = &"jump"
 
 [node name="Tail7Left" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(-35, -70)
+position = Vector2(35, -70)
 rotation = 3.14159
 scale = Vector2(0.175, -0.175)
 sprite_frames = SubResource("SpriteFrames_nbels")
@@ -953,7 +953,7 @@ animation = &"jump"
 
 [node name="Tail5Left" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(-35, -70)
+position = Vector2(35, -70)
 rotation = 3.14159
 scale = Vector2(0.175, -0.175)
 sprite_frames = SubResource("SpriteFrames_uk0oa")
@@ -961,7 +961,7 @@ animation = &"jump"
 
 [node name="Tail3Left" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(-35, -70)
+position = Vector2(35, -70)
 rotation = 3.14159
 scale = Vector2(0.175, -0.175)
 sprite_frames = SubResource("SpriteFrames_0c5qb")
@@ -969,35 +969,35 @@ animation = &"jump"
 
 [node name="Tail1Left" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(-35, -70)
+position = Vector2(35, -70)
 scale = Vector2(-0.175, 0.175)
 sprite_frames = SubResource("SpriteFrames_dfv67")
 animation = &"jump"
 
 [node name="Tail2Left" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(-35, -70)
+position = Vector2(35, -70)
 scale = Vector2(-0.175, 0.175)
 sprite_frames = SubResource("SpriteFrames_doaxq")
 animation = &"jump"
 
 [node name="Tail4Left" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(-35, -70)
+position = Vector2(35, -70)
 scale = Vector2(-0.175, 0.175)
 sprite_frames = SubResource("SpriteFrames_mmmmn")
 animation = &"jump"
 
 [node name="Tail6Left" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(-35, -70)
+position = Vector2(35, -70)
 scale = Vector2(-0.175, 0.175)
 sprite_frames = SubResource("SpriteFrames_uju4m")
 animation = &"jump"
 
 [node name="Tail8Left" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(-30, -70)
+position = Vector2(35, -70)
 scale = Vector2(-0.175, 0.175)
 sprite_frames = SubResource("SpriteFrames_nca4f")
 animation = &"jump"
@@ -1011,7 +1011,7 @@ frame_progress = 0.250177
 
 [node name="PlayerBodyLeft" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(-35, -70)
+position = Vector2(35, -70)
 scale = Vector2(-0.175, 0.175)
 sprite_frames = SubResource("SpriteFrames_28fxt")
 animation = &"jump"
