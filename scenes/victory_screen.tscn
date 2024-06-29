@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://rs5jd7vipo4y"]
+
+[ext_resource type="Texture2D" uid="uid://cxlsv0dawkbkw" path="res://art/Background/Start_Screen_with_BG.png" id="1_aifr0"]
+[ext_resource type="Script" path="res://scenes/victory_screen.gd" id="1_cinep"]
+[ext_resource type="FontFile" uid="uid://dgyyto1smy2pg" path="res://art/KongJapanese-Wy7PA.otf" id="2_jr01u"]
+
+[node name="victory_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cinep")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(637, 322.25)
+scale = Vector2(0.667708, 0.596759)
+texture = ExtResource("1_aifr0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 610.0
+offset_top = 323.0
+offset_right = 687.0
+offset_bottom = 385.0
+
+[node name="restart" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../quit")
+focus_neighbor_bottom = NodePath("../quit")
+theme_override_fonts/font = ExtResource("2_jr01u")
+text = "restart
+"
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../restart")
+focus_neighbor_bottom = NodePath("../restart")
+theme_override_fonts/font = ExtResource("2_jr01u")
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]
