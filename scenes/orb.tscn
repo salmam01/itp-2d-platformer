@@ -3,25 +3,6 @@
 [sub_resource type="GDScript" id="GDScript_2ehcs"]
 script/source = "extends Area2D
 
-@export var void_level = 2500
-@export var orb_visible = true
-@onready var orb_collected = $OrbCollected
-
-signal reset
-
-func _on_body_entered(body):
-	if(body.name == \"Player\"):
-		if(orb_visible):
-			orb_collected.play(\"collected\")
-			await orb_collected.animation_finished
-			position.y -= void_level
-			orb_visible = false
-
-func _on_player_show_orb():
-	if(!orb_visible):
-		position.y += void_level
-		orb_visible = true
-		emit_signal(\"reset\")
 "
 
 [sub_resource type="SphereMesh" id="SphereMesh_olygf"]
