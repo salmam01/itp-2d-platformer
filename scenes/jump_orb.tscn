@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://f83g5o6da0sg" path="res://art/Orbs/Collected.png" id="1_fh4gv"]
 [ext_resource type="Texture2D" uid="uid://d1kgsw4484nxu" path="res://art/Orbs/Collectables-Sheet.png" id="2_jh4xh"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_bic5q"]
+radius = 2.00098
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_kxw75"]
 atlas = ExtResource("1_fh4gv")
 region = Rect2(0, 0, 32, 32)
@@ -107,10 +110,12 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bic5q"]
-radius = 2.00098
-
 [node name="JumpOrb" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+modulate = Color(0.443879, 0.56194, 1, 1)
+scale = Vector2(16, 16)
+shape = SubResource("CircleShape2D_bic5q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -127,8 +132,3 @@ texture_filter = 1
 scale = Vector2(4.5, 4.5)
 sprite_frames = SubResource("SpriteFrames_r8si7")
 animation = &"idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-modulate = Color(0.443879, 0.56194, 1, 1)
-scale = Vector2(16, 16)
-shape = SubResource("CircleShape2D_bic5q")

@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://d1kgsw4484nxu" path="res://art/Orbs/Collectables-Sheet.png" id="1_hsb4l"]
 [ext_resource type="Texture2D" uid="uid://f83g5o6da0sg" path="res://art/Orbs/Collected.png" id="2_ppgm7"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qklap"]
+radius = 2.06628
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_swy40"]
 atlas = ExtResource("2_ppgm7")
 region = Rect2(0, 0, 32, 32)
@@ -93,10 +96,11 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_qklap"]
-radius = 2.06628
-
 [node name="HealthOrb" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(16, 16)
+shape = SubResource("CircleShape2D_qklap")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -111,7 +115,3 @@ texture_filter = 1
 scale = Vector2(4.5, 4.5)
 sprite_frames = SubResource("SpriteFrames_qbx44")
 animation = &"idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(16, 16)
-shape = SubResource("CircleShape2D_qklap")

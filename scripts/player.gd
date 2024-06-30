@@ -41,6 +41,8 @@ var jump_count = 0
 @onready var _tail8_left = $Tail8Left
 @onready var _tail9_right = $Tail9Right
 @onready var _tail9_left = $Tail9Left
+@onready var invulnerability = $Invulnerability
+@onready var effects_animation = $EffectsAnimation
 
 @onready var _tails_right = [
 	_tail1_right, _tail2_right, _tail3_right, 
@@ -184,7 +186,6 @@ func _on_orb_body_entered(body):
 func _on_health_orb_body_entered(body):
 	if(current_lives < max_lives):
 		gain_life()
-		#print(orb_count)
 
 func _on_dash_orb_body_entered(body):
 	if Input.is_action_pressed("pick_up") && current_speed_boosts != max_speed_boosts:
@@ -193,13 +194,24 @@ func _on_dash_orb_body_entered(body):
 		dash()
 
 func _on_jump_orb_body_entered(body):
+	if(invulnerability.is_stopped()):
+		invulnerability.start()
+		effects_animation.play("damage")
+		effects_animation.queue("flash")
 	if Input.is_action_pressed("pick_up") && current_jump_boosts != max_jump_boosts:
 		current_jump_boosts += 1
 	else:
 		jump_boost()
 
 func _on_spike_body_entered(body):
-	lose_life()
+	if(invulnerability.is_stopped()):
+		invulnerability.start()
+		effects_animation.play("damage")
+		effects_animation.queue("flash")
+		lose_life()
+
+func _on_invulnerability_timeout():
+	effects_animation.play("RESET")
 
 func reset_orbs():
 	emit_signal("show_orb")

@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://d1kgsw4484nxu" path="res://art/Orbs/Collectables-Sheet.png" id="1_rvkcx"]
 [ext_resource type="Texture2D" uid="uid://f83g5o6da0sg" path="res://art/Orbs/Collected.png" id="2_y3idt"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3ijiq"]
+radius = 1.968
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_qeen0"]
 atlas = ExtResource("2_y3idt")
 region = Rect2(0, 0, 32, 32)
@@ -114,10 +117,13 @@ animations = [{
 "speed": 11.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3ijiq"]
-radius = 1.968
-
 [node name="DashOrb" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -5.96046e-08)
+scale = Vector2(16.2681, 16.25)
+shape = SubResource("CircleShape2D_3ijiq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -132,9 +138,3 @@ texture_filter = 1
 scale = Vector2(4.5, 4.5)
 sprite_frames = SubResource("SpriteFrames_an3rt")
 animation = &"idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-texture_filter = 1
-position = Vector2(0, -5.96046e-08)
-scale = Vector2(16.2681, 16.25)
-shape = SubResource("CircleShape2D_3ijiq")
