@@ -108,13 +108,13 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bic5q"]
-radius = 2.25
+radius = 2.00098
 
 [node name="JumpOrb" type="Area2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(5, 5)
+scale = Vector2(4.5, 4.5)
 texture = ExtResource("2_jh4xh")
 hframes = 12
 vframes = 2
@@ -124,7 +124,7 @@ region_rect = Rect2(0, 112, 192, 32)
 
 [node name="OrbAnimation" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(5, 5)
+scale = Vector2(4.5, 4.5)
 sprite_frames = SubResource("SpriteFrames_r8si7")
 animation = &"idle"
 

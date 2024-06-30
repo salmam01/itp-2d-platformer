@@ -198,12 +198,6 @@ func _on_jump_orb_body_entered(body):
 	else:
 		jump_boost()
 
-func _on_jump_orb_2_body_entered(body):
-	if Input.is_action_pressed("pick_up") && current_jump_boosts != max_jump_boosts:
-		current_jump_boosts += 1
-	else:
-		jump_boost()
-
 func _on_spike_body_entered(body):
 	lose_life()
 
@@ -227,9 +221,6 @@ func jump_boost():
 	var timer := get_tree().create_timer(2)
 	timer.timeout.connect(func(): default_jump_force = 700)
 	timer.timeout.connect(func(): reduced_jump_force = 500)
-
-func _on_free_dash_orb_2():
-	pass # Replace with function body.
 
 func toggle_body_visability(start, end):
 	if start == "left" && end == "right":
