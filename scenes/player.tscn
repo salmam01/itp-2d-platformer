@@ -1169,6 +1169,7 @@ expand_mode = 2
 
 [node name="Invulnerability" type="Timer" parent="."]
 wait_time = 0.8
+one_shot = true
 
 [node name="EffectsAnimation" type="AnimationPlayer" parent="."]
 libraries = {

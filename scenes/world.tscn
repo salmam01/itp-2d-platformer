@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cvo8y8lgyvgm3"]
+[gd_scene load_steps=23 format=3 uid="uid://cvo8y8lgyvgm3"]
 
 [ext_resource type="PackedScene" uid="uid://cmflrgaamfdj5" path="res://scenes/player.tscn" id="1_r3n07"]
 [ext_resource type="Script" path="res://scenes/world.gd" id="1_yiw3x"]
@@ -1495,9 +1495,6 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ht5q7"]
 size = Vector2(44135, 170)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2jqf"]
-size = Vector2(163, 54)
-
 [node name="World" type="Node2D"]
 position = Vector2(2, 2)
 script = ExtResource("1_yiw3x")
@@ -1643,46 +1640,42 @@ position = Vector2(1661, 192)
 
 [node name="Spike2" parent="." instance=ExtResource("9_ncu5b")]
 z_index = -1
-position = Vector2(4210, 33)
+position = Vector2(5596, 34)
 
 [node name="Spike3" parent="." instance=ExtResource("9_ncu5b")]
 z_index = -1
-position = Vector2(7093, 97)
+position = Vector2(8155, -831)
 
 [node name="Spike4" parent="." instance=ExtResource("9_ncu5b")]
 z_index = -1
-position = Vector2(12587, -97)
+position = Vector2(8075, 98)
 
 [node name="Spike5" parent="." instance=ExtResource("9_ncu5b")]
 z_index = -1
-position = Vector2(16750, -95)
+position = Vector2(12564, -95)
 
 [node name="Spike6" parent="." instance=ExtResource("9_ncu5b")]
 z_index = -1
-position = Vector2(19236, -1504)
+position = Vector2(16109, -1055)
 
 [node name="Spike7" parent="." instance=ExtResource("9_ncu5b")]
 z_index = -1
-position = Vector2(21017, 384)
+position = Vector2(20180, -1152)
 
 [node name="Spike8" parent="." instance=ExtResource("9_ncu5b")]
 z_index = -1
-position = Vector2(25576, 127)
+position = Vector2(21185, 387)
 
 [node name="Spike9" parent="." instance=ExtResource("9_ncu5b")]
 z_index = -1
-position = Vector2(32778, -542)
+position = Vector2(25576, 132)
+
+[node name="CollisionShape2D" parent="Spike9/Spike" index="0"]
+position = Vector2(72, 30)
 
 [node name="Spike10" parent="." instance=ExtResource("9_ncu5b")]
 z_index = -1
-position = Vector2(16082, -1054)
-
-[node name="Spike2" type="Area2D" parent="Spike10"]
-position = Vector2(1, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike10/Spike2"]
-position = Vector2(74, 31)
-shape = SubResource("RectangleShape2D_b2jqf")
+position = Vector2(32439, -542)
 
 [connection signal="show_orb" from="Player" to="Orb" method="_on_player_show_orb"]
 [connection signal="show_orb" from="Player" to="HealthOrb" method="_on_player_show_orb"]
@@ -1738,7 +1731,24 @@ shape = SubResource("RectangleShape2D_b2jqf")
 [connection signal="body_entered" from="JumpOrb5" to="Player" method="_on_jump_orb_body_entered"]
 [connection signal="body_entered" from="JumpOrb5" to="JumpOrb5" method="_on_body_entered"]
 [connection signal="body_entered" from="Spike/Spike" to="Player" method="_on_spike_body_entered"]
-[connection signal="body_entered" from="Spike10/Spike2" to="Player" method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike2/Spike" to="Player" method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike3/Spike" to="Player" method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike4/Spike" to="Player" method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike5/Spike" to="Player" method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike6/Spike" to="Player" method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike7/Spike" to="Player" method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike8/Spike" to="Player" method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike9/Spike" to="Player" method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike10/Spike" to="Player" method="_on_spike_body_entered"]
 
 [editable path="Player"]
 [editable path="Spike"]
+[editable path="Spike2"]
+[editable path="Spike3"]
+[editable path="Spike4"]
+[editable path="Spike5"]
+[editable path="Spike6"]
+[editable path="Spike7"]
+[editable path="Spike8"]
+[editable path="Spike9"]
+[editable path="Spike10"]

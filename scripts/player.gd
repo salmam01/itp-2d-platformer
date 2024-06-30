@@ -194,21 +194,18 @@ func _on_dash_orb_body_entered(body):
 		dash()
 
 func _on_jump_orb_body_entered(body):
-	if(invulnerability.is_stopped()):
-		invulnerability.start()
-		effects_animation.play("damage")
-		effects_animation.queue("flash")
 	if Input.is_action_pressed("pick_up") && current_jump_boosts != max_jump_boosts:
 		current_jump_boosts += 1
 	else:
 		jump_boost()
 
 func _on_spike_body_entered(body):
-	if(invulnerability.is_stopped()):
-		invulnerability.start()
-		effects_animation.play("damage")
-		effects_animation.queue("flash")
-		lose_life()
+	if(body.name == "Player"):
+		if(invulnerability.is_stopped()):
+			lose_life()
+			invulnerability.start()
+			effects_animation.play("damage")
+			effects_animation.queue("flash")
 
 func _on_invulnerability_timeout():
 	effects_animation.play("RESET")
