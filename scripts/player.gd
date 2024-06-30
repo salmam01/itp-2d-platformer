@@ -156,7 +156,7 @@ func lose_life():
 		else:
 			toggle_tail_visability("right", "left")
 	if current_lives == 0:
-		reset_level()
+		get_tree().change_scene_to_file("res://scenes/death_screen.tscn")
 
 func gain_life():
 	if current_lives < max_lives:
@@ -171,8 +171,10 @@ func gain_life():
 func teleport_to_starting_position():
 	position = starting_position
 	
-func _on_level_end_body_entered(body): #entering the end of level
-	reset_level()
+func _on_level_end_body_entered(body): 
+	print("Level end triggered by body: ", body.name)  # Debugging print
+	if body.name == "Player":
+		get_tree().change_scene_to_file("res://scenes/victory_screen.tscn")
 
 func _on_void_body_entered(body): #falling off level
 	lose_life()
