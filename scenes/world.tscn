@@ -1671,9 +1671,6 @@ position = Vector2(21185, 387)
 z_index = -1
 position = Vector2(25576, 132)
 
-[node name="CollisionShape2D" parent="Spike9/Spike" index="0"]
-position = Vector2(72, 30)
-
 [node name="Spike10" parent="." instance=ExtResource("9_ncu5b")]
 z_index = -1
 position = Vector2(32439, -542)
@@ -1732,25 +1729,15 @@ position = Vector2(32439, -542)
 [connection signal="body_entered" from="JumpOrb4" to="JumpOrb4" method="_on_body_entered"]
 [connection signal="body_entered" from="JumpOrb5" to="Player" method="_on_jump_orb_body_entered"]
 [connection signal="body_entered" from="JumpOrb5" to="JumpOrb5" method="_on_body_entered"]
-[connection signal="body_entered" from="Spike/Spike" to="Player" method="_on_spike_body_entered"]
-[connection signal="body_entered" from="Spike2/Spike" to="Player" method="_on_spike_body_entered"]
-[connection signal="body_entered" from="Spike3/Spike" to="Player" method="_on_spike_body_entered"]
-[connection signal="body_entered" from="Spike4/Spike" to="Player" method="_on_spike_body_entered"]
-[connection signal="body_entered" from="Spike5/Spike" to="Player" method="_on_spike_body_entered"]
-[connection signal="body_entered" from="Spike6/Spike" to="Player" method="_on_spike_body_entered"]
-[connection signal="body_entered" from="Spike7/Spike" to="Player" method="_on_spike_body_entered"]
-[connection signal="body_entered" from="Spike8/Spike" to="Player" method="_on_spike_body_entered"]
-[connection signal="body_entered" from="Spike9/Spike" to="Player" method="_on_spike_body_entered"]
-[connection signal="body_entered" from="Spike10/Spike" to="Player" method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike" to="Player" method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike2" to="Player" method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike3" to="Player" method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike4" to="Player" method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike5" to="Player" method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike6" to="Player" method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike7" to="Player" method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike8" to="Player" method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike9" to="Player" method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike10" to="Player" method="_on_spike_body_entered"]
 
 [editable path="Player"]
-[editable path="Spike"]
-[editable path="Spike2"]
-[editable path="Spike3"]
-[editable path="Spike4"]
-[editable path="Spike5"]
-[editable path="Spike6"]
-[editable path="Spike7"]
-[editable path="Spike8"]
-[editable path="Spike9"]
-[editable path="Spike10"]

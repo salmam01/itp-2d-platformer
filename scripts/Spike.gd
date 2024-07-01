@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends Area2D
 
 @export var direction = true
 @export var pause_counter = 0
