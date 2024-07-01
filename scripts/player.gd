@@ -19,6 +19,7 @@ extends CharacterBody2D
 var jump_force_state = default_jump_force
 var jump_count = 0
 
+@onready var Tail_Counter = $GUI/TailCounter
 
 @export var current_direction = 0 #0 right, 1 left
 @onready var _body_right = $PlayerBodyRight
@@ -140,6 +141,8 @@ func _ready():
 	toggle_tail_visability("left", "right")
 	
 func update_life_gui():
+	if current_lives <= max_lives:
+		Tail_Counter.play(GlobalVariables.current_counter_style+str(current_lives))
 	for i in range(max_lives):
 		var life_icon = life_container.get_child(i)
 		if i == current_lives - 1:  # Show only the current_lives-th TextureRect
@@ -227,6 +230,7 @@ func dash():
 	timer.timeout.connect(func(): speed = 800)
 	
 func jump_boost():
+	jump_count = 0
 	default_jump_force = 1000
 	reduced_jump_force = 750
 	var timer := get_tree().create_timer(2)

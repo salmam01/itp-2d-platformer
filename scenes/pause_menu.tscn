@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bc07air4dspd0"]
+[gd_scene load_steps=4 format=3 uid="uid://bc07air4dspd0"]
 
 [ext_resource type="FontFile" uid="uid://dgyyto1smy2pg" path="res://art/KongJapanese-Wy7PA.otf" id="1_smw4t"]
 [ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_tj1hc"]
+[ext_resource type="Texture2D" uid="uid://d1kgsw4484nxu" path="res://art/Orbs/Collectables-Sheet.png" id="3_2cak2"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -14,10 +15,10 @@ script = ExtResource("1_tj1hc")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-offset_left = 568.0
-offset_top = 250.0
-offset_right = 644.0
-offset_bottom = 345.0
+offset_left = 548.0
+offset_top = 223.0
+offset_right = 643.0
+offset_bottom = 351.0
 scale = Vector2(2, 2)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
@@ -35,17 +36,80 @@ text = "Resume"
 [node name="Restart" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Resume")
-focus_neighbor_bottom = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../Main Menu")
 theme_override_fonts/font = ExtResource("1_smw4t")
 text = "Restart"
 
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Main Menu" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Restart")
+focus_neighbor_bottom = NodePath("../Quit")
+theme_override_fonts/font = ExtResource("1_smw4t")
+text = "Main Menu"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Main Menu")
 focus_neighbor_bottom = NodePath("../Resume")
 theme_override_fonts/font = ExtResource("1_smw4t")
 text = "Quit"
 
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 35.0
+offset_right = 245.0
+offset_bottom = 88.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/HBoxContainer"]
+position = Vector2(-6, 6)
+texture = ExtResource("3_2cak2")
+region_enabled = true
+region_rect = Rect2(0, 64, 16, 16)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 15)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_smw4t")
+theme_override_font_sizes/normal_font_size = 11
+text = "  Health Orb"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/HBoxContainer2"]
+position = Vector2(-6, 6)
+texture = ExtResource("3_2cak2")
+region_enabled = true
+region_rect = Rect2(0, 128, 16, 16)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 15)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_smw4t")
+theme_override_font_sizes/normal_font_size = 11
+text = "  Jump Orb"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/HBoxContainer3"]
+position = Vector2(-6, 6)
+texture = ExtResource("3_2cak2")
+region_enabled = true
+region_rect = Rect2(0, 80, 16, 16)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(100, 15)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_smw4t")
+theme_override_font_sizes/normal_font_size = 11
+text = "  Dash Orb"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

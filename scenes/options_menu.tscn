@@ -1,0 +1,139 @@
+[gd_scene load_steps=9 format=3 uid="uid://hti32iygegwd"]
+
+[ext_resource type="Texture2D" uid="uid://bsjb61v8ii1xy" path="res://art/Fox Lives GUI/bw/foxlivesAll.png" id="1_5v3l6"]
+[ext_resource type="Script" path="res://scripts/options_menu.gd" id="1_bpokb"]
+[ext_resource type="FontFile" uid="uid://dgyyto1smy2pg" path="res://art/KongJapanese-Wy7PA.otf" id="2_m2hgw"]
+[ext_resource type="Texture2D" uid="uid://b4kf0217tu52c" path="res://art/Fox Lives GUI/bwg/foxlivesAll.png" id="2_oilk8"]
+[ext_resource type="Texture2D" uid="uid://bxwkiok0ttuit" path="res://art/Fox Lives GUI/rainbow/foxlivesAll.png" id="3_srtck"]
+[ext_resource type="Texture2D" uid="uid://yi7g7rv8tn3e" path="res://art/Fox Lives GUI/rg/foxlivesAll.png" id="4_if1ke"]
+[ext_resource type="Texture2D" uid="uid://dkr56yasw5xy6" path="res://art/Fox Lives GUI/sprite/foxlivesAll.png" id="5_svode"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_gojqw"]
+
+[node name="options_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bpokb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.145517, 0.134017, 0.131739, 1)
+position = Vector2(642.75, 320.75)
+scale = Vector2(1286.5, 642.5)
+texture = SubResource("CanvasTexture_gojqw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 494.0
+offset_right = 760.0
+offset_bottom = 641.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+visible = false
+clip_contents = false
+custom_minimum_size = Vector2(10, 25)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+text = "Life Counter Style"
+
+[node name="bw_button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../return_button")
+focus_neighbor_bottom = NodePath("../bwg_button")
+theme_override_fonts/font = ExtResource("2_m2hgw")
+text = "Black and White"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+position = Vector2(132, 29)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_5v3l6")
+
+[node name="bwg_button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../bw_button")
+focus_neighbor_bottom = NodePath("../rainbow_button")
+theme_override_fonts/font = ExtResource("2_m2hgw")
+text = "Black and White Gradient"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+position = Vector2(132, 29)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_oilk8")
+
+[node name="rainbow_button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../bwg_button")
+focus_neighbor_bottom = NodePath("../rb_button")
+theme_override_fonts/font = ExtResource("2_m2hgw")
+text = "Rainbow
+"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+position = Vector2(132, 29)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_srtck")
+
+[node name="rb_button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../rainbow_button")
+focus_neighbor_bottom = NodePath("../sprite_button")
+theme_override_fonts/font = ExtResource("2_m2hgw")
+text = "Rainbow Gradient"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+position = Vector2(132, 29)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_if1ke")
+
+[node name="sprite_button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../rb_button")
+focus_neighbor_bottom = NodePath("../return_button")
+theme_override_fonts/font = ExtResource("2_m2hgw")
+text = "Player Sprite"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer5"]
+position = Vector2(132, 29)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("5_svode")
+
+[node name="return_button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../sprite_button")
+focus_neighbor_bottom = NodePath("../bw_button")
+theme_override_fonts/font = ExtResource("2_m2hgw")
+text = "Return to Menu"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/bw_button" to="." method="_on_bw_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/bwg_button" to="." method="_on_bwg_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/rainbow_button" to="." method="_on_rainbow_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/rb_button" to="." method="_on_rb_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/sprite_button" to="." method="_on_sprite_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/return_button" to="." method="_on_return_button_pressed"]
