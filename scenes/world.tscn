@@ -1623,7 +1623,7 @@ position = Vector2(6568, -138)
 script = ExtResource("18_q38sm")
 
 [node name="JumpOrb3" parent="." instance=ExtResource("7_q2s87")]
-position = Vector2(8760, -1068)
+position = Vector2(8855, -1062)
 script = ExtResource("18_q38sm")
 
 [node name="JumpOrb4" parent="." instance=ExtResource("7_q2s87")]
@@ -1652,7 +1652,7 @@ position = Vector2(8075, 98)
 
 [node name="Spike5" parent="." instance=ExtResource("9_ncu5b")]
 z_index = -1
-position = Vector2(12564, -95)
+position = Vector2(12845, -93)
 
 [node name="Spike6" parent="." instance=ExtResource("9_ncu5b")]
 z_index = -1
@@ -1691,9 +1691,9 @@ position = Vector2(32439, -542)
 [connection signal="show_orb" from="Player" to="DashOrb4" method="_on_player_show_orb"]
 [connection signal="show_orb" from="Player" to="JumpOrb" method="_on_player_show_orb"]
 [connection signal="show_orb" from="Player" to="JumpOrb2" method="_on_player_show_orb"]
-[connection signal="show_orb" from="Player" to="JumpOrb3" method="_on_player_show_orb"]
 [connection signal="show_orb" from="Player" to="JumpOrb4" method="_on_player_show_orb"]
 [connection signal="show_orb" from="Player" to="JumpOrb5" method="_on_player_show_orb"]
+[connection signal="show_orb" from="Player" to="JumpOrb3" method="_on_player_show_orb"]
 [connection signal="timeout" from="Player/Invulnerability" to="Player" method="_on_invulnerability_timeout"]
 [connection signal="body_entered" from="LevelEnd" to="Player" method="_on_level_end_body_entered"]
 [connection signal="body_entered" from="Void" to="Player" method="_on_void_body_entered"]
