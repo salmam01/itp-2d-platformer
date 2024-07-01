@@ -185,24 +185,28 @@ func _on_void_body_entered(body): #falling off level
 	teleport_to_starting_position()
 
 func _on_orb_body_entered(body):
-	orbs += 1
-	update_life_gui()
+	if(body.name == "Player"):
+		orbs += 1
+		update_life_gui()
 	
 func _on_health_orb_body_entered(body):
 	if(current_lives < max_lives):
-		gain_life()
+		if(body.name == "Player"):
+			gain_life()
 
 func _on_dash_orb_body_entered(body):
-	if Input.is_action_pressed("pick_up") && current_speed_boosts != max_speed_boosts:
-		current_speed_boosts += 1
-	else:
-		dash()
+	if(body.name == "Player"):
+		if Input.is_action_pressed("pick_up") && current_speed_boosts != max_speed_boosts:
+			current_speed_boosts += 1
+		else:
+			dash()
 
 func _on_jump_orb_body_entered(body):
-	if Input.is_action_pressed("pick_up") && current_jump_boosts != max_jump_boosts:
-		current_jump_boosts += 1
-	else:
-		jump_boost()
+	if(body.name == "Player"):
+		if Input.is_action_pressed("pick_up") && current_jump_boosts != max_jump_boosts:
+			current_jump_boosts += 1
+		else:
+			jump_boost()
 
 func _on_spike_body_entered(body):
 	if(body.name == "Player"):
@@ -219,10 +223,10 @@ func reset_orbs():
 	emit_signal("show_orb")
 
 func reset_level():
-		teleport_to_starting_position()
-		current_lives = default_lives
-		update_life_gui()
-		reset_orbs()
+	teleport_to_starting_position()
+	current_lives = default_lives
+	update_life_gui()
+	reset_orbs()
 
 func dash():
 	speed = 1600
