@@ -9,6 +9,7 @@ func _process(delta):
 	pass
 
 func _on_start_button_pressed():
+	Engine.time_scale = 1
 	get_tree().change_scene_to_file("res://scenes/world.tscn")
 
 
