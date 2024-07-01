@@ -75,14 +75,14 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and jump_count < max_jumps:
 		velocity.y = -default_jump_force
 		if current_direction == 0:
-			toggle_body_visability("left", "right")
+			toggle_body_visibility("left", "right")
 			if jump_count == 1:
 				_body_right.stop()
 				stop_tail_animation()
 			_body_right.play("jump")
 			toggle_tail_animation("right", "jump")
 		else:
-			toggle_body_visability("right", "left")
+			toggle_body_visibility("right", "left")
 			if jump_count == 1:
 				_body_left.stop()
 				stop_tail_animation()
@@ -104,26 +104,26 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("move_right"):
 		current_direction = 0
-		toggle_body_visability("left", "right")
-		toggle_tail_visability("left", "right")
+		toggle_body_visibility("left", "right")
+		toggle_tail_visibility("left", "right")
 		if jump_count == 0:
 			_body_right.play("run")
 			toggle_tail_animation("right", "run")
 	elif Input.is_action_pressed("move_left"):
 		current_direction = 1
-		toggle_body_visability("right", "left")
-		toggle_tail_visability("right", "left")
+		toggle_body_visibility("right", "left")
+		toggle_tail_visibility("right", "left")
 		if jump_count == 0:
 			_body_left.play("run")
 			toggle_tail_animation("left", "run")
 	else:
 		if current_direction == 0:
-			toggle_body_visability("left", "right")
+			toggle_body_visibility("left", "right")
 			if jump_count == 0:
 				_body_right.play("idle")
 				toggle_tail_animation("right", "idle")
 		else:
-			toggle_body_visability("right", "left")
+			toggle_body_visibility("right", "left")
 			if jump_count == 0:
 				_body_left.play("idle")
 				toggle_tail_animation("left", "idle")
@@ -137,8 +137,8 @@ func _ready():
 	# Set the starting position of the player
 	position = starting_position  # Set the desired X and Y coordinates
 	update_life_gui()
-	toggle_body_visability("left", "right")
-	toggle_tail_visability("left", "right")
+	toggle_body_visibility("left", "right")
+	toggle_tail_visibility("left", "right")
 	
 func update_life_gui():
 	if current_lives <= max_lives:
@@ -155,9 +155,9 @@ func lose_life():
 		current_lives -= 1
 		update_life_gui()
 		if current_direction == 0:
-			toggle_tail_visability("left", "right")
+			toggle_tail_visibility("left", "right")
 		else:
-			toggle_tail_visability("right", "left")
+			toggle_tail_visibility("right", "left")
 	if current_lives == 0:
 		get_tree().change_scene_to_file("res://scenes/death_screen.tscn")
 
@@ -166,9 +166,9 @@ func gain_life():
 		current_lives += 1
 		update_life_gui()
 		if current_direction == 0:
-			toggle_tail_visability("left", "right")
+			toggle_tail_visibility("left", "right")
 		else:
-			toggle_tail_visability("right", "left")
+			toggle_tail_visibility("right", "left")
 
 # Teleport the player back to the starting position
 func teleport_to_starting_position():
@@ -241,7 +241,7 @@ func jump_boost():
 	timer.timeout.connect(func(): default_jump_force = 700)
 	timer.timeout.connect(func(): reduced_jump_force = 500)
 
-func toggle_body_visability(start, end):
+func toggle_body_visibility(start, end):
 	if start == "left" && end == "right":
 		if _body_left.visible == true:
 			_body_left.visible = false
@@ -253,7 +253,7 @@ func toggle_body_visability(start, end):
 		if _body_left.visible == false:
 			_body_left.visible = true
 			
-func toggle_tail_visability(start, end):
+func toggle_tail_visibility(start, end):
 	for t in range(0, current_lives):
 		if start == "left" && end == "right":
 			if _tails_left[t].visible == true:
