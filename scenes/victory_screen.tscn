@@ -14,7 +14,7 @@ grow_vertical = 2
 script = ExtResource("1_cinep")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(637, 322.25)
+position = Vector2(643, 324)
 scale = Vector2(0.667708, 0.596759)
 texture = ExtResource("1_aifr0")
 
@@ -28,14 +28,21 @@ offset_bottom = 385.0
 [node name="restart" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../quit")
-focus_neighbor_bottom = NodePath("../quit")
+focus_neighbor_bottom = NodePath("../main_menu")
 theme_override_fonts/font = ExtResource("2_jr01u")
 text = "restart
 "
 
-[node name="quit" type="Button" parent="VBoxContainer"]
+[node name="main_menu" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../restart")
+focus_neighbor_bottom = NodePath("../quit")
+theme_override_fonts/font = ExtResource("2_jr01u")
+text = "Main Menu"
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../main_menu")
 focus_neighbor_bottom = NodePath("../restart")
 theme_override_fonts/font = ExtResource("2_jr01u")
 text = "Quit"
@@ -47,14 +54,18 @@ anchor_left = 0.023
 anchor_top = 0.03
 anchor_right = 0.023
 anchor_bottom = 0.03
-offset_left = 557.56
-offset_top = 180.8
-offset_right = 640.56
-offset_bottom = 207.8
+offset_left = 480.56
+offset_top = 185.8
+offset_right = 667.56
+offset_bottom = 257.8
 scale = Vector2(1.5, 1.5)
+theme_override_colors/default_color = Color(0.65098, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
 theme_override_fonts/normal_font = ExtResource("2_jr01u")
-text = "Victory!!!
-"
+theme_override_font_sizes/normal_font_size = 37
+text = "Victory!!!"
 
 [connection signal="pressed" from="VBoxContainer/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/main_menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]

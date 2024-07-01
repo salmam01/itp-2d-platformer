@@ -13,7 +13,6 @@ func _process(delta):
 	pass
 
 
-
 func _on_resume_pressed():
 	pause_menu.visible = false
 	get_tree().paused = false
